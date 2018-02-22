@@ -1,0 +1,105 @@
+#! /bin/sh
+#
+# Move dotfiles into place
+#
+
+SRC=$HOME/src/dotfiles
+
+logline() {
+   echo "*** $1"
+}
+
+dotname() {
+    # 'dot.bashrc' => '.bashrc'
+    echo ".${1#dot.}"
+    # can easily be converted to use suffix '.symlink', etc.
+    # echo ".${1%.symlink}"
+}
+
+dotpath() {
+    # 'dot.bashrc' => '$HOME/.bashrc' and '/path/dot.bashrc' => '$HOME/.bashrc'
+    DOTNAME=`dotname "${1##*/}"`
+    echo "${HOME}/${DOTNAME}"
+}
+
+symlink() {
+    # (re)create symlink for dotfile
+    SRC=$1
+    DST=$2
+    if [ -L "$DST" ]; then
+        # remove any existing links
+        echo "*** Removing existing symlink $DST"
+        /bin/rm -- "$DST"
+    fi
+    echo "*** Linking $SRC -> $DST"
+    /bin/ln -sn -- "$SRC" "$DST"
+}
+dot_symlink() {
+    # (re)create symlink for dotfile
+    SRC=$1
+    DST=`dotpath "$SRC"`
+    symlink $SRC $DST
+}
+
+copy_item() {
+    # (re)create copy for dotfile
+    SRC=$1
+    DST=`dotpath "$SRC"`
+    if [ -L "$DST" ]; then
+        # remove any existing links
+        /bin/rm -v -- "$DST"
+    fi
+    /bin/cp -vn -- "$SRC" "$DST"
+}
+
+prune() {
+    # rm old dotfile symlinks directly inside target directory
+    logline 'Pruning old symlinks...'
+    find -L "$1" -maxdepth 1 -type l -name '.*' -exec /bin/rm -i -- {} +
+}
+
+find_dotfiles() {
+    # find all files beginning with 'dot.' inside a directory
+    find "$1" -maxdepth 1 -name 'dot.?*' 
+}
+
+link_dotfiles() {
+    # find all dotfiles beginning with 'dot.' inside a directory, then link
+    find_dotfiles $1 | while read item; do dot_symlink $item; done
+}
+
+# Link dotfiles
+logline 'Creating standard symlinks...'
+link_dotfiles $SRC
+
+#echo '[INFO] Putting misc directory links into place...'
+#link_item "$SRC/bin" "$HOME/bin"
+#link_item "$SRC/Notebooks" "$HOME/Notebooks"
+#link_item "$HOME/.xsession" "$HOME/.xinitrc"
+
+# ensure Alpine is configured to save passwords locally
+#touch "$HOME/.pine-passfile"
+
+#echo '[INFO] Putting autostart file into place...'
+# .kde on Linux, .kde4 on FreeBSD
+#link_item "$HOME/.xsessionrc" "$HOME/.kde4/env/autostart.sh"
+
+if [ -n "$1" ]; then
+    logline 'Creating additional symlinks...'
+    #./ansible/provision $1
+    link_dotfiles "$SRC/$1"
+
+    # Additional tasks...
+    case "`uname`" in
+       FreeBSD)
+          cp -i "`readlink -n ~/.login_conf.sample`" ~/.login_conf
+          ;;
+    esac
+
+else
+    logline 'No provision type ("home" or "work") specified.  Skipping provisioning...'
+fi
+
+#symlink "$SRC/bin" "$HOME/bin"
+
+prune "$HOME"
