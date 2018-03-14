@@ -38,6 +38,7 @@
 ; https://godoc.org/golang.org/x/tools/cmd/goimports
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
 
 ; https://emacs.stackexchange.com/questions/5981/how-to-make-electric-pair-mode-buffer-local/5990#5990
 ; https://emacs.stackexchange.com/questions/13603/auctex-disable-electric-pair-mode-in-minibuffer-during-macro-definition
@@ -152,7 +153,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
+    (go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
