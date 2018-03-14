@@ -35,6 +35,10 @@
 ; autopair
 (electric-pair-mode 1)
 
+; https://godoc.org/golang.org/x/tools/cmd/goimports
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+
 ; https://emacs.stackexchange.com/questions/5981/how-to-make-electric-pair-mode-buffer-local/5990#5990
 ; https://emacs.stackexchange.com/questions/13603/auctex-disable-electric-pair-mode-in-minibuffer-during-macro-definition
 (defvar my-electic-pair-modes '(go-mode js-mode json-mode emacs-lisp-mode python-mode org-mode))
