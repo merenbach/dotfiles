@@ -49,6 +49,8 @@
 (setq electric-pair-inhibit-predicate #'my-inhibit-electric-pair-mode)
 
 (ivy-mode 1)
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-fuzzy)))
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 (global-set-key "\C-s" 'swiper)
