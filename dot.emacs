@@ -37,7 +37,7 @@
 
 ; https://emacs.stackexchange.com/questions/5981/how-to-make-electric-pair-mode-buffer-local/5990#5990
 ; https://emacs.stackexchange.com/questions/13603/auctex-disable-electric-pair-mode-in-minibuffer-during-macro-definition
-(defvar my-electic-pair-modes '(js-mode json-mode emacs-lisp-mode python-mode org-mode))
+(defvar my-electic-pair-modes '(go-mode js-mode json-mode emacs-lisp-mode python-mode org-mode))
 
 (defun my-inhibit-electric-pair-mode (char)
 (not (member major-mode my-electic-pair-modes)))
