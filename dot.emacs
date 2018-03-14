@@ -50,7 +50,8 @@
 
 (ivy-mode 1)
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-fuzzy)))
+      '((read-file-name-internal . ivy--regex-fuzzy)
+        (t . ivy--regex-plus)))
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 (global-set-key "\C-s" 'swiper)
