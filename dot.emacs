@@ -153,7 +153,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
+    (protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
