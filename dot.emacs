@@ -175,3 +175,5 @@
 
   ;; you may want to add different for other charset in this way.
   )
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
