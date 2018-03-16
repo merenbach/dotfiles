@@ -14,3 +14,8 @@ For GoLang defs in emacs:
 For formatting:
 
     go get golang.org/x/tools/cmd/goimports
+
+For syntax checks:
+
+    go get -u gopkg.in/alecthomas/gometalinter.v2
+    gometalinter.v2 --install
