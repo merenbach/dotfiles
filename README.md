@@ -10,3 +10,7 @@ Run `setup` to symlink/copy only universal files, or `setup home`/`setup work` t
 For GoLang defs in emacs:
 
     go get golang.org/x/tools/cmd/guru
+
+For formatting:
+
+    go get golang.org/x/tools/cmd/goimports
