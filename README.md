@@ -19,3 +19,8 @@ For syntax checks:
 
     go get -u gopkg.in/alecthomas/gometalinter.v2
     gometalinter.v2 --install
+
+
+## Todo
+
+Copy backup.exclude for home.
