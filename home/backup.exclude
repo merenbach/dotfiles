@@ -1,0 +1,12 @@
+*.pyc
+.CloudStationBackup/**
+.PlayOnLinux/**
+.cache/**
+.config/**
+.nv/**
+.mozilla/**
+.wine/**
+/andrew/Downloads/**
+/andrew/GOG Games/**
+/andrew/Pictures/old-big-pics/**
+/andrew/go/**
