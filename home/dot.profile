@@ -22,3 +22,4 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+GOPATH=$HOME/go
