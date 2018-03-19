@@ -22,8 +22,9 @@
 
 (setq column-number-mode t)
 
-;(global-linum-mode 1)
+(global-linum-mode 1)
 ;(setq linum-format "%d ")
+;(setq linum-format 'dynamic)
 
 
 ;(require 'evil)
@@ -140,8 +141,9 @@
     (load-theme 'solarized-light t))
 
 ;(setq company-idle-delay 1)
+;(setq company-minimum-prefix-length 2)
 ;;(global-set-key "\t" 'company-complete-common)
-;(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 
 (with-eval-after-load 'org
     (setq org-startup-indented 1))
@@ -153,7 +155,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
+    (company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
