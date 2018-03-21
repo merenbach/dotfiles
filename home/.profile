@@ -16,7 +16,8 @@
 # TERM=xterm; 	export TERM
 
 EDITOR=vi;   	export EDITOR
-PAGER=more;  	export PAGER
+PAGER=less;  	export PAGER
+CLICOLOR=1;	export CLICOLOR
 
 # set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV
