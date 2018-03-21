@@ -15,18 +15,17 @@ logline() {
 #    find -L "$1" -maxdepth 1 -type l -name '.*' -exec /bin/rm -i -- {} +
 #}
 
-find_dotfiles() {
-    # find all files beginning with 'dot.' inside a directory
-    find "$1" -maxdepth 1 -name '.?*' 
-}
-
-copy_dotfiles() {
-    # find all dotfiles beginning with '.' inside a directory, then copy
-    find_dotfiles $1 | while read item; do /bin/cp -a -v $item $HOME; done
+link_dotfiles() {
+    find "$1" -maxdepth 1 -name '.?*' -exec /bin/ln -f -s -v "$SRC/{}" $HOME \;
 }
 
 # Link dotfiles
-logline 'Creating standard symlinks...'
-copy_dotfiles $HOME/src/dotfiles/$1
+logline "Creating common symlinks..."
+link_dotfiles common
+
+if [ -n "$1" ]; then
+	logline "Creating symlinks for $1..."
+	link_dotfiles $1
+fi
 
 #prune "$HOME"
