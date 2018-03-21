@@ -117,6 +117,7 @@ pkg install -y shells/bash
 #append_if_absent /etc/sysctl.conf 'hw.snd.default_auto=0'
 #append_if_absent /etc/sysctl.conf 'hw.snd.default_unit=3'
 #append_if_absent /etc/sysctl.conf 'kern.coredump=0'
+##??#append_if_absent /etc/sysctl.conf 'vfs.usermount=1'
 #append_if_absent /boot/loader.conf 'autoboot_delay="2"'
 #append_if_absent /boot/loader.conf 'loader_logo="beastie"'
 sysrc clear_tmp_enable="YES"

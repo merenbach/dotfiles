@@ -10,14 +10,14 @@ fi
 # Reverse scroll direction
 xmodmap -e 'pointer = 1 2 3 5 4'
 
-pgrep xbindkeys || xbindkeys
-xautolock -time 10 -locker /usr/local/bin/slock &
+#pgrep xbindkeys || xbindkeys
+#xautolock -time 10 -locker /usr/local/bin/slock &
 
-compton -b
+#compton -b
 
 # Add SSH key
-eval `ssh-agent`
-ssh-add < /dev/null
+#eval `ssh-agent`
+#ssh-add < /dev/null
 
 # Set mouse acceleration (2.0) and threshold (2px)
 # (Before tweaking, make sure mouse doesn't have its own hardware switch!)
@@ -30,8 +30,8 @@ xset dpms 600 600 600
 xset -b
 
 # Set wallpaper
-feh --bg-fill "$HOME/wallpaper"
+#feh --bg-fill "$HOME/wallpaper"
 
 # Start the WM now
-exec /usr/local/bin/startxfce4 --with-ck-launch
+exec /usr/local/bin/i3
 #exec /usr/local/bin/fvwm
