@@ -1,0 +1,11 @@
+#! /bin/sh
+
+exec rclone copy --modify-window=1s /home remote:chitsa-backup-20171221 --transfers 1 --skip-links --exclude-from "$HOME/src/dotfiles/home/backup.exclude" "$@"
+
+#exec rclone sync /home remote:chitsa-backup-20171221 --transfers 1 --skip-links --exclude "/andrew/Pictures/old-big-pics/**" --exclude "/andrew/.cache/**" --exclude "/andrew/.CloudStationBackup/**" --exclude "/andrew/Downloads/**" --exclude "/andrew/.PlayOnLinux/**" --exclude "/andrew/.wine/**" --exclude "/andrew/GOG Games/**" --exclude "/andrew/Music/Library/**" "$@"
+
+#exec rclone sync /home remote:chitsa-backup-20171221 --transfers 2 --exclude "/andrew/Pictures/**" --exclude "/andrew/.cache/**" --exclude "/andrew/.CloudStationBackup/**" --exclude "/andrew/Downloads/**" --exclude "/andrew/.PlayOnLinux/**" --exclude "/andrew/.wine/**" --exclude "/andrew/GOG Games/**" --exclude "/andrew/.local/**" --exclude "/andrew/.config/**" "$@"
+#exec rclone copy /home remote:chitsa-backup-20171221 --transfers 4 --exclude "/andrew/Music/**"  --exclude "/andrew/Pictures/**" --exclude "/andrew/.cache/**" --exclude "/andrew/.CloudStationBackup/**" --exclude "/andrew/Downloads/**" --exclude "/andrew/.PlayOnLinux/**" --exclude "/andrew/.wine/**" --exclude "/andrew/Videos/**" "$@"
+
+#exec rclone copy /home remote:chitsa-backup-20171221 --verbose --transfers 4 --exclude "/andrew/.config/**" --exclude "/andrew/.local/**" --exclude "/andrew/Videos/**" --exclude "/andrew/Music/**"  --exclude "/andrew/Pictures/**" --exclude "/andrew/.cache/**" --exclude "/andrew/.CloudStationBackup/**" --exclude "/andrew/Downloads/**" --exclude "/andrew/.PlayOnLinux/**" --exclude "/andrew/.mozilla/**" --exclude "/andrew/prev-andrew/old-andrew/games/**" --exclude "/andrew/.wine/**"
+#exec rclone --transfers 32 --skip-links --exclude ".*" sync /home remote:chitsa-backup-20171221
