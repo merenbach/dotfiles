@@ -15,12 +15,6 @@ find_dotfiles() {
     find "$1" -maxdepth 1 -name '.?*' -print0
 }
 
-link_dotfiles() {
-    echo "*** Creating symlinks for $1..."
-}
-copy_dotfiles() {
-    echo "*** Copying dotfiles for $1..."
-}
 sync_dotfiles() {
 	echo "*** Syncing dotfiles for $1..."
 	if [ -d "$SRC/$1/link" ]; then
