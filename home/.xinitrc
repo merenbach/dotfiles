@@ -4,6 +4,12 @@ if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi
 
+# Disable bell
+xset -b
+
+# Enable zapping (C-A-<Bksp> kills X)
+setxkbmap -option terminate:ctrl_alt_bksp
+
 # Swap alt and ctrl
 #setxkbmap ....
 
@@ -11,7 +17,7 @@ fi
 xmodmap -e 'pointer = 1 2 3 5 4'
 
 #pgrep xbindkeys || xbindkeys
-#xautolock -time 10 -locker /usr/local/bin/slock &
+xautolock -time 10 -locker /usr/local/bin/slock &
 
 #compton -b
 
@@ -26,12 +32,12 @@ xset mouse 20/16 4
 # turn off screen after ten minutes
 xset dpms 600 600 600
 
-# Disable hardware beep
-xset -b
-
 # Set wallpaper
 #feh --bg-fill "$HOME/wallpaper"
 
 # Start the WM now
-exec /usr/local/bin/i3
 #exec /usr/local/bin/fvwm
+
+# Start i3 and log to ~/.i3/logfile
+echo "Starting at `date`" >> ~/.i3/logfile
+exec /usr/local/bin/i3 -V -d all >> ~/.i3/logfile

@@ -142,7 +142,7 @@ ln -s /net/sulik/volume1 /media/sulik
 # screen locking
 pkg install -y x11/slock
 #pkg install -y x11/xlockmore
-#pkg install -y x11/xautolock
+pkg install -y x11/xautolock
 
 # misc utils
 pkg install -y sysutils/pwgen
