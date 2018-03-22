@@ -5,27 +5,37 @@
 
 SRC=$HOME/src/dotfiles
 
-logline() {
-   echo "*** $1"
-}
-
 #prune() {
 #    # rm old dotfile symlinks directly inside target directory
 #    logline 'Pruning old symlinks...'
 #    find -L "$1" -maxdepth 1 -type l -name '.*' -exec /bin/rm -i -- {} +
 #}
 
+find_dotfiles() {
+    find "$1" -maxdepth 1 -name '.?*' -print0
+}
+
 link_dotfiles() {
-    find "$1" -maxdepth 1 -name '.?*' -exec /bin/ln -f -s -v "$SRC/{}" $HOME \;
+    echo "*** Creating symlinks for $1..."
+}
+copy_dotfiles() {
+    echo "*** Copying dotfiles for $1..."
+}
+sync_dotfiles() {
+	echo "*** Syncing dotfiles for $1..."
+	if [ -d "$SRC/$1/link" ]; then
+		find_dotfiles "$SRC/$1/link" | /usr/bin/xargs -t -0 -n1 -I{} /bin/ln -f -s -v '{}' "$HOME"
+	fi
+	if [ -d "$SRC/$1/copy" ]; then
+		find_dotfiles "$SRC/$1/copy" | /usr/bin/xargs -t -0 -n1 -I{} /bin/cp -n -v '{}' "$HOME"
+	fi
 }
 
 # Link dotfiles
-logline "Creating common symlinks..."
-link_dotfiles common
+sync_dotfiles common
 
 if [ -n "$1" ]; then
-	logline "Creating symlinks for $1..."
-	link_dotfiles $1
+	sync_dotfiles $1
 fi
 
 #prune "$HOME"
