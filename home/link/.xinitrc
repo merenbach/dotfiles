@@ -19,7 +19,8 @@ xmodmap -e 'pointer = 1 2 3 5 4'
 #pgrep xbindkeys || xbindkeys
 xautolock -time 10 -locker /usr/local/bin/slock &
 
-#compton -b
+# Start compositor
+compton -b
 
 # Add SSH key
 #eval `ssh-agent`
@@ -33,7 +34,7 @@ xset mouse 20/16 4
 xset dpms 600 600 600
 
 # Set wallpaper
-#feh --bg-fill "$HOME/wallpaper"
+feh --bg-fill "$HOME/wallpaper"
 
 # Start the WM now
 #exec /usr/local/bin/fvwm
