@@ -204,7 +204,6 @@ MY_INSTALL devel/awscli
 # productivity
 MY_INSTALL editors/libreoffice
 MY_INSTALL editors/texmaker
-#MY_INSTALL editors/vim
 MY_INSTALL graphics/gimp
 MY_INSTALL print/texlive-full
 MY_INSTALL textproc/hs-pandoc
@@ -232,6 +231,8 @@ MY_INSTALL graphics/geeqie
 # coding
 MY_INSTALL devel/git
 MY_INSTALL editors/emacs
+MY_INSTALL editors/vim
+MY_INSTALL lang/go
 MY_INSTALL lang/python3
 MY_INSTALL lang/racket-minimal
 MY_INSTALL misc/sloccount
