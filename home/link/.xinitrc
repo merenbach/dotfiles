@@ -40,4 +40,7 @@ xset dpms 600 600 600
 
 # Start i3 and log to ~/.i3/logfile
 echo "Starting at `date`" >> ~/.i3/logfile
-exec /usr/local/bin/i3 -V -d all >> ~/.i3logfile
+#/usr/local/bin/sxhkd &
+exec /usr/local/bin/bspwm -c ~/.bspwmrc
+#exec /usr/local/bin/fvwm
+#exec /usr/local/bin/i3 -V -d all >> ~/.i3logfile
