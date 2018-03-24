@@ -17,7 +17,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xmodmap -e 'pointer = 1 2 3 5 4'
 
 #pgrep xbindkeys || xbindkeys
-xautolock -time 10 -locker /usr/local/bin/slock &
+xautolock &
 
 # Start compositor
 compton -b

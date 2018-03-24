@@ -7,8 +7,8 @@ super + Return
 	uxterm
 
 # program launcher
-super + d
-	dmenu_run -fn 'Monospace-13'
+super + r
+	rofi -show run
 
 # make sxhkd reload its configuration files:
 super + Escape

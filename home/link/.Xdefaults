@@ -1,6 +1,6 @@
 ! xautolock settings
 Xautolock.time:     10
-Xautolock.locker:   /usr/local/bin/slock
+Xautolock.locker:   /usr/local/bin/xlock
 
 XLock.mode:         blank
 

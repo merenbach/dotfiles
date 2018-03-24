@@ -65,7 +65,7 @@ sysrc dbus_enable="YES"
 service dbus start
 
 # desktop environment
-MY_INSTALL x11/dmenu
+MY_INSTALL x11/rofi
 MY_INSTALL x11-wm/bspwm
 #MY_INSTALL x11-wm/sxhkd
 #MY_INSTALL x11-wm/fvwm2
@@ -73,9 +73,8 @@ MY_INSTALL x11/xload
 MY_INSTALL x11-clocks/xclock
 
 # screen locking
-MY_INSTALL x11/slock
 MY_INSTALL x11/xautolock
-#MY_INSTALL x11/xlockmore
+MY_INSTALL x11/xlockmore
 
 smartmontools() {
 	# smartmontools
