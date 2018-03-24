@@ -21,6 +21,7 @@ sync_dotfiles() {
 		find_dotfiles "$SRC/$1/link" | /usr/bin/xargs -t -0 -n1 -I{} /bin/ln -f -s -v '{}' "$HOME"
 	fi
 	if [ -d "$SRC/$1/copy" ]; then
+		find_dotfiles "$SRC/$1/copy" | /usr/bin/xargs -t -0 -n1 -I{} /usr/bin/diff -s '{}' "$HOME"
 		find_dotfiles "$SRC/$1/copy" | /usr/bin/xargs -t -0 -n1 -I{} /bin/cp -n -v '{}' "$HOME"
 	fi
 }
