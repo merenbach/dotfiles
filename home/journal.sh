@@ -181,7 +181,7 @@ MY_INSTALL security/keepassx2
 MY_INSTALL textproc/the_silver_searcher
 MY_INSTALL textproc/dict
 MY_INSTALL graphics/feh
-MY_INSTALL x11/xsel
+#MY_INSTALL x11/xsel
 #MY_INSTALL x11/xclip
 MY_INSTALL security/nmap
 #MY_INSTALL security/keychain
