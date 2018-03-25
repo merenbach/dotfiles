@@ -311,24 +311,3 @@ MY_INSTALL games/scummvm games/scummvm-tools
 #   command: /usr/bin/env WINEPREFIX="{{ wine_prefix }}" wine "{{ fallout2.patch_exe }}" creates="{{ fallout2.full_path }}/fallout2.cfg_orig"
 #   tags: configuration
 
-
-# XFCE
-MY_INSTALL x11-wm/xfce4
-MY_INSTALL misc/xfce4-wm-themes
-MY_INSTALL audio/xfce4-mixer
-MY_INSTALL x11/xfce4-screenshooter-plugin
-MY_INSTALL x11/xfce4-whiskermenu-plugin
-MY_INSTALL misc/xfce4-weather-plugin
-MY_INSTALL archivers/thunar-archive-plugin
-MY_INSTALL archivers/xarchiver
-# KDE
-# MY_INSTALL x11/kde4
-# sysrc hald_enable="YES"
-# sysrc dbus_enable="YES"
-# sysrc kdm4_enable="YES"
-# MY_INSTALL databases/virtuoso
-#cp /usr/local/lib/virtuoso/db/virtuoso.ini.sample /usr/local/lib/virtuoso/db/virtuoso.ini
-#echo 'proc           /proc       procfs  rw  0   0' >> /etc/fstab
-
-
-
