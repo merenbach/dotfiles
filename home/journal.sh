@@ -210,6 +210,7 @@ MY_INSTALL print/texlive-full
 MY_INSTALL textproc/hs-pandoc
 MY_INSTALL www/firefox
 # [TODO] MY_INSTALL www/chromium
+# enable shared memory for chromium
 # [TODO] sysctl kern.ipc.shm_allow_removed=1
 MY_INSTALL multimedia/mpv
 MY_INSTALL multimedia/vlc
