@@ -142,6 +142,7 @@ ntp() {
 ntp()
 
 MY_INSTALL shells/bash
+chsh -s /usr/local/bin/bash andrew
 #MY_INSTALL shells/ksh93
 #[TODO] disable crash dumps
 #sysrc dumpdev="NO"
