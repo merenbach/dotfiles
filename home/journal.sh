@@ -9,7 +9,8 @@ pw group mod video -m "${MY_USER}"
 
 install() {
 	# replace with manual compile later...
-	pkg install -y "$@"
+	#pkg install -y "$@"
+	/usr/local/sbin/portmaster --no-confirm -B -G "$@"
 }
 
 WHICH_MAKE=/usr/bin/make
@@ -24,6 +25,9 @@ WHICH_MAKE=/usr/bin/make
 #
 # or, for the latest and greatest (and possibly broken)...
 #/usr/bin/svnlite checkout -r HEAD https://svn.freebsd.org/ports/head /usr/ports
+
+# install portmaster
+/usr/bin/make -C /usr/ports/ports-mgmt/portmaster install clean BATCH=yes
 
 pkg bootstrap
 MY_INSTALL security/ca_root_nss
@@ -182,24 +186,30 @@ sysrc autofs_enable="YES"
 
 ln -s /net/sulik/volume1 /media/sulik
 
+
+install_cli_misc() {
+	MY_INSTALL ftp/wget
+	MY_INSTALL math/calc
+	MY_INSTALL net-mgmt/whatmask
+	MY_INSTALL net/rclone
+	MY_INSTALL net/rsync
+	MY_INSTALL security/nmap
+	MY_INSTALL sysutils/pwgen
+}
+
+install_cli_misc
+
 # misc utils
-MY_INSTALL sysutils/pwgen
-MY_INSTALL net/rclone
-MY_INSTALL net/rsync
 MY_INSTALL security/keepassx2
 MY_INSTALL textproc/the_silver_searcher
 MY_INSTALL textproc/dict
 MY_INSTALL graphics/feh
 #MY_INSTALL x11/xsel
 #MY_INSTALL x11/xclip
-MY_INSTALL security/nmap
 #MY_INSTALL security/keychain
 MY_INSTALL sysutils/lsof
 #[TODO]MY_INSTALL sysutils/cmdwatch
-MY_INSTALL net-mgmt/whatmask
-MY_INSTALL math/calc
 MY_INSTALL ftp/curl
-MY_INSTALL ftp/wget
 MY_INSTALL archivers/zip
 MY_INSTALL archivers/unzip
 MY_INSTALL net-p2p/rtorrent
