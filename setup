@@ -11,14 +11,10 @@ SRC=$HOME/src/dotfiles
 #    find -L "$1" -maxdepth 1 -type l -name '.*' -exec /bin/rm -i -- {} +
 #}
 
-find_dotfiles() {
-    /usr/bin/find "$1" -maxdepth 1 -name '.?*' -print0
-}
-
 sync_dotfiles() {
 	echo "*** Syncing dotfiles for $1..."
 	if [ -d "$SRC/$1/link" ]; then
-		find_dotfiles "$SRC/$1/link" | /usr/bin/xargs -t -0 -n1 -I{} /bin/ln -f -s -v '{}' "$HOME"
+		/usr/bin/find "$SRC/$1/link" -maxdepth 1 -name '.?*' -print0 | /usr/bin/xargs -t -0 -n1 -I{} /bin/ln -f -s -v '{}' "$HOME"
 	fi
 	if [ -d "$SRC/$1/copy" ]; then
 		/bin/cp -R -P -v "$SRC/$1/copy/" "$HOME"
