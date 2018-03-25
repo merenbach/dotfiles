@@ -16,10 +16,19 @@ WHICH_MAKE=/usr/bin/make
 #WHICH_PORTSNAP=...
 
 #[TODO] /etc/make.conf
+# https://chriswells.io/blog/using-quarterly-ports-on-freebsd
+/usr/bin/svnlite checkout https://svn.freebsd.org/ports/branches/2018Q1 /usr/ports
+# when it's time to update...
+# /usr/bin/svnlite switch https://svn.freebsd.org/ports/branches/20YYQN... /usr/ports
+# /usr/bin/svnlite update /usr/ports
+#
+# or, for the latest and greatest (and possibly broken)...
+#/usr/bin/svnlite checkout -r HEAD https://svn.freebsd.org/ports/head /usr/ports
+
 pkg bootstrap
 MY_INSTALL security/ca_root_nss
-#/usr/bin/svnlite checkout -r HEAD https://svn.freebsd.org/ports/head /usr/ports
-portsnap fetch update || portsnap extract && ${WHICH_MAKE} -C /usr/ports fetchindex
+# since pkgs are quarterly, and svn defaults to HEAD, we can also choose a different branch if we prefer
+#portsnap fetch update || portsnap extract && ${WHICH_MAKE} -C /usr/ports fetchindex
 
 zfs() {
 	sysrc zfs_enable="YES"
