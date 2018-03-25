@@ -12,7 +12,7 @@ SRC=$HOME/src/dotfiles
 #}
 
 find_dotfiles() {
-    find "$1" -maxdepth 1 -name '.?*' -print0
+    /usr/bin/find "$1" -maxdepth 1 -name '.?*' -print0
 }
 
 sync_dotfiles() {
@@ -21,7 +21,10 @@ sync_dotfiles() {
 		find_dotfiles "$SRC/$1/link" | /usr/bin/xargs -t -0 -n1 -I{} /bin/ln -f -s -v '{}' "$HOME"
 	fi
 	if [ -d "$SRC/$1/copy" ]; then
-		/bin/cp -R -P -v "$SRC/$1/copy/" /
+		/bin/cp -R -P -v "$SRC/$1/copy/" "$HOME"
+	fi
+	if [ -d "$SRC/$1/rootcopy" ]; then
+		/usr/bin/su - root -c "/bin/cp -R -P -v '$SRC/$1/rootcopy/' /"
 	fi
 }
 
