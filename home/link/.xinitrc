@@ -1,5 +1,5 @@
 #! /bin/sh
-userresources=$HOME/.Xresources
+userresources=$HOME/.Xdefaults
 if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi
