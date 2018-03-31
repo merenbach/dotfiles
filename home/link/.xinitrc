@@ -10,6 +10,9 @@ xset -b
 # Enable zapping (C-A-<Bksp> kills X)
 setxkbmap -option terminate:ctrl_alt_bksp
 
+# Swap caps lock and escape
+setxkbmap -option caps:swapescape
+
 # Swap alt and ctrl
 #setxkbmap ....
 
