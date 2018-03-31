@@ -1,8 +1,25 @@
 " My new vimrc
 
+
+" Enable syntax highlighting
+syntax on
+
+" Hide instead of unload buffers when abandoning them
+set hidden
+
 " Line numbers (but see https://github.com/vim/vim/issues/282)
 set relativenumber
 "set number
+
+" Ignore case only in lower-case searches
+set ignorecase
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" What characters can wrap between lines?
+"set whichwrap+=<,>,h,l
 
 let mapleader=","
 " used more for certain types of files
