@@ -1,6 +1,11 @@
 " My new vimrc
 
 let mapleader=","
+" used more for certain types of files
+"let maplocalleader = "\\"
+
+" Fast saving
+nnoremap <Leader>w :write!<CR>
 
 " Cycle between buffers
 " 'Vim also has <C-^> (or <C-6> on some keyboards)—the normal mode equivalent of :b#—to jump between the current buffer and the previous one. Use it if you often alternate between two buffers.'
@@ -15,26 +20,26 @@ nnoremap gb :ls<CR>:b<Space>
 "" Juggling with files
 set path=.,**
 " Find files recursively under curent working directory
-nnoremap <leader>f :find *
-nnoremap <leader>s :sfind *
-nnoremap <leader>v :vert sfind *
-nnoremap <leader>t :tabfind *
+nnoremap <Leader>f :find *
+nnoremap <Leader>s :sfind *
+nnoremap <Leader>v :vert sfind *
+nnoremap <Leader>t :tabfind *
 " Skip entire parts of the current project to find files recursively under directory of current file
-nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>S :sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>V :vert sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>T :tabfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <Leader>F :find <C-R>=expand('%:h').'/*'<CR>
+nnoremap <Leader>S :sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <Leader>V :vert sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <Leader>T :tabfind <C-R>=expand('%:h').'/*'<CR>
 
 
 "" Juggling with buffers
 set wildcharm=<C-z>
-nnoremap <leader>b :buffer <C-z><S-Tab>
-nnoremap <leader>B :sbuffer <C-z><S-Tab>
+nnoremap <Leader>b :buffer <C-z><S-Tab>
+nnoremap <Leader>B :sbuffer <C-z><S-Tab>
 nnoremap <PageUp>   :bprevious<CR>
 nnoremap <PageDown> :bnext<CR>
 
 "" Juggling withh tags
-nnoremap <leader>j :tjump /
+nnoremap <Leader>j :tjump /
 
 
 "" Wildmenu
