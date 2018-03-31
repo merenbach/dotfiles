@@ -279,27 +279,24 @@ MY_INSTALL security/openssh-askpass
 #[TODO] MY_INSTALL deskutils/gucharmap
 #[TODO] MY_INSTALL deskutils/gourmet
 
+# gaming
+install_emulators() {
+	MY_INSTALL emulators/dosbox
+	MY_INSTALL emulators/i386-wine-devel
+	/bin/sh /usr/local/share/wine/patch-nvidia.sh
+	MY_INSTALL emulators/winetricks
+	#winetricks install gdiplus
+	#winetricks install dotnet40
+#MY_INSTALL emulators/playonbsd
+}
+install_emulators()
+
 # virtualization
-MY_INSTALL emulators/virtualbox-ose
 pw group mod vboxusers -m "${MY_USER}"
 sysrc kld_list+="vboxdrv"
 sysrc vboxnet_enable="YES"
 kldload vboxdrv
 service vboxnet start
-
-# gaming
-install_emulators() {
-	MY_INSTALL emulators/wine-mono-devel
-	MY_INSTALL emulators/wine-gecko-devel
-}
-install_emulators()
-
-MY_INSTALL emulators/dosbox
-MY_INSTALL emulators/playonbsd
-MY_INSTALL emulators/i386-wine-devel emulators/winetricks
-#winetricks install gdiplus
-#winetricks install dotnet40
-/bin/sh /usr/local/share/wine/patch-nvidia.sh
 
 install_games() {
 	MY_INSTALL games/alephone
