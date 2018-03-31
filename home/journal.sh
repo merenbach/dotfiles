@@ -259,8 +259,7 @@ install_coding() {
 	MY_INSTALL editors/vim
 	MY_INSTALL lang/go
 	MY_INSTALL lang/python3
-	MY_INSTALL lang/racket
-	#MY_INSTALL lang/racket-minimal
+	MY_INSTALL lang/racket-minimal
 	MY_INSTALL misc/sloccount
 }
 install_coding()
