@@ -156,3 +156,72 @@ xterm*color14:                 S_base1
 xterm*color15:                 S_base3
 
 !!!! end solarized
+
+! depth 32 required for true transparency
+URxvt.depth: 24
+
+! colors
+URxvt.transparent: false
+
+! login shell (read ~/.bash_profile)
+URxvt.loginShell: false
+
+URxvt.urgentOnBell: false
+URxvt.visualBell: false
+
+!! Adapted from Arch wiki
+
+! do not scroll with output
+URxvt.scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt.scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt.scrollTtyKeypress: true
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.secondaryWheel: 1
+
+!! end Arch wiki adaptation
+
+! scrollback buffer size
+URxvt.saveLines: 16384
+
+! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollBar: false
+URxvt.scrollstyle: plain
+URxvt.scrollBar_right: false
+
+! Adapted from http://wiki.afterstep.org/index.php?title=Rxvt-Unicode_Configuration_Tutorial
+URxvt.font: xft:Monospace:style=Regular:size=13
+URxvt.boldFont: xft:Monospace:style=Bold:size=13
+URxvt.italicFont: xft:Monospace:style=Oblique:size=13
+URxvt.boldItalicFont: xft:Monospace:style=Bold Oblique:size=13
+
+URxvt.iconFile: /usr/local/share/icons/Tango/scalable/apps/terminal.svg
+
+! LAUNCH links in browser
+URxvt.perl-ext-common: default,confirm-paste,searchable-scrollback
+URxvt.perl-ext: clipboard,url-select
+!URxvt.url-launcher: firefox
+!URxvt.matcher.button: 1
+URxvt.url-select.button: 1
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
+
+! Clipboard
+!URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+!URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-Meta-V: perl:clipboard:paste_escaped
+URxvt.iso14755: False
+
+! color links
+URxvt.colorUL: #4682B4
+
+! cursor
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false

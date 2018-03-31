@@ -10,7 +10,7 @@ pw group mod video -m "${MY_USER}"
 install() {
 	# replace with manual compile later...
 	#pkg install -y "$@"
-	/usr/local/sbin/portmaster --no-confirm -B -G "$@"
+	/usr/local/sbin/portmaster --no-confirm -B -G -D "$@"
 }
 
 WHICH_MAKE=/usr/bin/make
@@ -44,7 +44,6 @@ zfs() {
 	# ### only with enough space: zfs set copies=2 wasteland/arroyo
 	# ### only with second drive: // setup zfs mirroring
 }
-
 zfs()
 
 # enable Linuxulator
@@ -129,15 +128,17 @@ firewall() {
 firewall()
 
 # fonts
-MY_INSTALL x11-fonts/dina
-MY_INSTALL x11-fonts/droid-fonts-ttf
-MY_INSTALL x11-fonts/freefont-ttf
-MY_INSTALL x11-fonts/gnu-unifont
-MY_INSTALL x11-fonts/terminus-font
-MY_INSTALL x11-fonts/urwfonts
-MY_INSTALL x11-fonts/webfonts
-#MY_INSTALL x11-fonts/xorg-fonts
-
+install_fonts() {
+	MY_INSTALL x11-fonts/dina
+	MY_INSTALL x11-fonts/droid-fonts-ttf
+	MY_INSTALL x11-fonts/freefont-ttf
+	MY_INSTALL x11-fonts/gnu-unifont
+	MY_INSTALL x11-fonts/terminus-font
+	MY_INSTALL x11-fonts/urwfonts
+	MY_INSTALL x11-fonts/webfonts
+	MY_INSTALL x11-fonts/xorg-fonts
+}
+install_fonts()
 
 # program launching
 #MY_INSTALL x11/xbindkeys
@@ -188,32 +189,37 @@ ln -s /net/sulik/volume1 /media/sulik
 
 
 install_cli_misc() {
+	MY_INSTALL archivers/unzip
+	MY_INSTALL archivers/zip
+	MY_INSTALL devel/awscli
+	MY_INSTALL ftp/curl
 	MY_INSTALL ftp/wget
+	MY_INSTALL graphics/feh
 	MY_INSTALL math/calc
 	MY_INSTALL net-mgmt/whatmask
 	MY_INSTALL net/rclone
 	MY_INSTALL net/rsync
 	MY_INSTALL security/nmap
 	MY_INSTALL sysutils/pwgen
+	MY_INSTALL textproc/dict
 }
+install_cli_misc()
 
-install_cli_misc
+install_gui_misc() {
+	MY_INSTALL security/keepassx2
+	MY_INSTALL x11/rxvt-unicode
+	MY_INSTALL x11/urxvt-perls
+	MY_INSTALL x11/xsel
+}
+install_gui_misc()
 
 # misc utils
-MY_INSTALL security/keepassx2
 MY_INSTALL textproc/the_silver_searcher
-MY_INSTALL textproc/dict
-MY_INSTALL graphics/feh
-#MY_INSTALL x11/xsel
 #MY_INSTALL x11/xclip
 #MY_INSTALL security/keychain
 MY_INSTALL sysutils/lsof
 #[TODO]MY_INSTALL sysutils/cmdwatch
-MY_INSTALL ftp/curl
-MY_INSTALL archivers/zip
-MY_INSTALL archivers/unzip
-MY_INSTALL net-p2p/rtorrent
-MY_INSTALL devel/awscli
+#MY_INSTALL net-p2p/rtorrent
 #[TODO] deskutils/zim
 #[TODO] graphics/epdfview
 #[TODO]MY_INSTALL graphics/GraphicsMagick # screenshots, conversions, etc.
@@ -241,8 +247,6 @@ MY_INSTALL audio/gstreamer-plugins-mp3
 # libdvdcss?
 MY_INSTALL graphics/geeqie
 #[TODO]MY_INSTALL multimedia/quodlibet
-#[TODO]MY_INSTALL x11/rxvt-unicode
-#[TODO]MY_INSTALL x11/urxvt-perls
 #[TODO]MY_INSTALL www/chromium
 # security/pinentry, password-store
 # 
@@ -250,20 +254,23 @@ MY_INSTALL graphics/geeqie
 #[TODO]${WHICH_MAKE} -C /usr/ports/x11-fonts/webfonts install clean BATCH=YES
 
 # coding
-MY_INSTALL devel/git
+install_coding() {
+	MY_INSTALL devel/git
+	MY_INSTALL editors/vim
+	MY_INSTALL lang/go
+	MY_INSTALL lang/python3
+	MY_INSTALL lang/racket
+	#MY_INSTALL lang/racket-minimal
+	MY_INSTALL misc/sloccount
+}
+install_coding()
 MY_INSTALL editors/emacs
-MY_INSTALL editors/vim
-MY_INSTALL lang/go
-MY_INSTALL lang/python3
-MY_INSTALL lang/racket-minimal
-MY_INSTALL misc/sloccount
 #[TODO] MY_INSTALL devel/diffuse
-#[TODO]MY_INSTALL sysutils/tmux
 #[TODO]MY_INSTALL www/httpie
 #[TODO]MY_INSTALL www/lynx
 
 # graphical control for SMART
-MY_INSTALL sysutils/gsmartcontrol
+#MY_INSTALL sysutils/gsmartcontrol
 #cp /usr/local/share/examples/libgnomesu/gnomesu-pam.sample /usr/local/etc/pam.d/gnomesu-pam
 
 # misc, more optional
@@ -282,23 +289,35 @@ kldload vboxdrv
 service vboxnet start
 
 # gaming
+install_emulators() {
+	MY_INSTALL emulators/wine-mono-devel
+	MY_INSTALL emulators/wine-gecko-devel
+}
+install_emulators()
+
 MY_INSTALL emulators/dosbox
 MY_INSTALL emulators/playonbsd
 MY_INSTALL emulators/i386-wine-devel emulators/winetricks
-#[TODO] MY_INSTALL emulators/wine-gecko emulators/wine-mono-devel
 #winetricks install gdiplus
 #winetricks install dotnet40
 /bin/sh /usr/local/share/wine/patch-nvidia.sh
 
-MY_INSTALL games/alephone games/alephone-data
-MY_INSTALL games/angband
+install_games() {
+	MY_INSTALL games/alephone
+	MY_INSTALL games/alephone-data
+	MY_INSTALL games/alephone-scenarios
+	MY_INSTALL games/angband
+	MY_INSTALL games/scummvm
+	MY_INSTALL games/scummvm-tools
+}
+install_games()
+
+# TODO: TEXT ADVENTURES
 #[TODO]MY_INSTALL games/zangband
 #[TODO]MY_INSTALL games/nethack
 #[TODO]MY_INSTALL games/doomsday
 #[TODO] MY_INSTALL games/xboard (may need custom flags)
-# [TODO] MY_INSTALL games/alephone-scenarios (need to change flags for Tempus)
-MY_INSTALL games/scummvm games/scummvm-tools
-# [TODO] scummvm-tools requires lame
+
 # [TODO] fallout install: f2_res.ini GRAPHICS_MODE=2 and UAC_AWARE=0
 # chmod 444 [dD]ata/[pP]roto/[iI]tems/* [dD]ata/[pP]roto/[cC]ritters/*
 # can also create dedicated root--see old
