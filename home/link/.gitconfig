@@ -6,7 +6,7 @@
 [core]
     quotepath = false
     autocrlf = input
-    editor = emacs -nw
+    editor = vim -f
     excludesfile = ~/.cvsignore
 [color]
     ui = auto
