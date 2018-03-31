@@ -1,5 +1,9 @@
 " My new vimrc
 
+" Line numbers (but see https://github.com/vim/vim/issues/282)
+set relativenumber
+"set number
+
 let mapleader=","
 " used more for certain types of files
 "let maplocalleader = "\\"
