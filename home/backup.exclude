@@ -1,10 +1,12 @@
 *.pyc
+*.core
 .CloudStationBackup/**
 .PlayOnLinux/**
 .cache/**
 .config/**
-.nv/**
+.dbus/**
 .mozilla/**
+.nv/**
 .wine/**
 /andrew/Downloads/**
 /andrew/GOG Games/**
