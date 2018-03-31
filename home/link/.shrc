@@ -9,6 +9,12 @@
 #
 
 
+# only function in interactive shells
+case "$-" in
+	*i*)	;;
+	*)	return;;
+esac
+
 # file permissions: rwxr-xr-x
 #
 # umask	022
@@ -32,12 +38,12 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 
-# set prompt: ``username@hostname$ '' 
-PS1="`whoami`@`hostname | sed 's/\..*//'`"
-case `id -u` in
-	0) PS1="${PS1}# ";;
-	*) PS1="${PS1}$ ";;
-esac
+# # set prompt: ``username@hostname$ ''
+# PS1="`whoami`@`hostname | sed 's/\..*//'`"
+# case `id -u` in
+# 	0) PS1="${PS1}# ";;
+# 	*) PS1="${PS1}$ ";;
+# esac
 
 # search path for cd(1)
 # CDPATH=:$HOME
