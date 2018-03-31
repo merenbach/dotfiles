@@ -10,6 +10,7 @@
 
 
 # only function in interactive shells
+# work around https://bugzilla.redhat.com/show_bug.cgi?id=20527
 case "$-" in
 	*i*)	;;
 	*)	return;;
