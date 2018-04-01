@@ -9,6 +9,8 @@
 "git clone https://github.com/tpope/vim-fugitive.git
 "git clone https://github.com/tpope/vim-repeat.git
 "git clone https://github.com/tpope/vim-surround.git
+"#git clone https://github.com/xolox/vim-easytags.git
+"#git clone https://github.com/xolox/vim-misc.git
 "# https://github.com/tpope/vim-unimpaired.git
 "# https://github.com/tpope/vim-sensible.git
 "#then run :GoInstall in vim
@@ -16,8 +18,8 @@
 "syntax
 "# can extend the following with: autocmd FileType apache setlocal commentstring=#\ %s
 " TODO: try to find a use for these
-"git clone https://github.com/tpope/vim-dispatch.git "~/.vim/pack/my-plugins/opt"
-"git clone git://github.com/tpope/vim-speeddating.git "~/.vim/pack/my-plugins/opt"
+"git clone https://github.com/tpope/vim-dispatch.git
+"git clone git://github.com/tpope/vim-speeddating.git
 
 "packadd! vim-dispatch
 "packadd! vim-speeddating
@@ -305,3 +307,13 @@ set matchtime=2
 
 " " multimedia
 " set wildignore+=*.pdf,*.svg,*.eps,*.ai,*.png,*.jpg,*.jpeg,*.gif,*.tif,*.tiff
+
+
+" " vim-easytags
+" let g:easytags_cmd = '/usr/local/bin/exctags'
+" let g:easytags_always_enabled = 0
+" let g:easytags_async = 1
+" let g:easytags_dynamic_files = 2
+" let g:easytags_events = ['BufWritePost']
+" let g:easytags_on_cursorhold = 0
+" let g:easytags_resolve_links = 1
