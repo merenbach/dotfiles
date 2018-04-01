@@ -1,41 +1,6 @@
 " An example for a vimrc file.
 " Lots of stuff adapted (read: taken) from: http://amix.dk/vim/vimrc.html
 "
-" Maintainer: Bram Moolenaar <Bram@vim.org>
-" Last change:  2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"       for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"     for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-
-"""" NeoBundle
-let g:make = 'gmake'
-if system('uname -o') =~ '^GNU/'
-  let g:make = 'make'
-endif
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  runtime bundle/vim-pathogen/autoload/pathogen.vim
-  execute pathogen#infect()
-  execute pathogen#helptags()
-endif
-
 "
 "NeoBundle 'rbgrouleff/bclose.vim'
 "NeoBundle 'sickill/vim-monokai'
@@ -69,9 +34,6 @@ endif
 "NeoBundle 'tpope/vim-surround'
 "NeoBundle 'jmcantrell/vim-virtualenv'
 ""NeoBundle 'ctrlpvim/ctrlp.vim'
-
-" gitgutter
-let g:gitgutter_map_keys = 0
 
 " Disable session autoload/autosave
 let g:session_autoload = 'no'
@@ -123,34 +85,6 @@ let g:tagbar_sort = 0
 "" Close buffer
 "nnoremap <silent> <leader>cb :close<CR>
 
-" Show line numbers
-" [BUG] https://github.com/vim/vim/issues/282
-set relativenumber
-set number
-
-
-
-""" NERDTree
-
-" open a NERDTree automatically when vim starts up if no files were specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | wincmd p | endif
-
-" map a specific key or shortcut to open NERDTree
-noremap <C-n> :NERDTreeToggle<CR>
-" noremap <C-n> :NERDTreeFromBookmark<Space>
-
-" close vim if the only window left open is a NERDTree
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" don't highlight cursor column in NERDTree
-autocmd FileType nerdtree setlocal nocursorcolumn
-
-" ignore some extensions
-let NERDTreeIgnore = ['\.pyc$']
-
-""" end NERDTree
 
 "" Set font
 "if has("gui_running") && has("gui_macvim")
@@ -173,12 +107,6 @@ set colorcolumn=80
 "colorscheme solarized
 "set background=dark
 
-"" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-"" let &guioptions = substitute(&guioptions, "t", "", "g")
-"
-"" Don't use Ex mode, use Q for formatting
-"map Q gq
-"
 "" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 "" so that you can undo CTRL-U after inserting a line break.
 "inoremap <C-U> <C-G>u<C-U>
@@ -429,8 +357,6 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " map <space> /
 " map <c-space> ?
 
-" Disable highlight when <leader><cr> is pressed
-map <leader><cr> :nohlsearch<cr>
 
 " Smart way to move between windows
 "nnoremap <silent> <Leader>j :wincmd j<CR>
@@ -546,11 +472,6 @@ noremap <Leader>M mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scripbble
 map <leader>q :e ~/buffer<cr>
-
-" Toggle paste mode on and off
-"map <leader>pp :setlocal paste!<cr>
-set pastetoggle=<Leader>p
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -736,26 +657,6 @@ nnoremap gb :ls<CR>:b<Space>
 " In project
 " nmap <unique> <leader>f <Plug>(FerretAck)
 
-set path=.,**
-
-" https://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins
-"
-" search project
-nnoremap <leader>f :find *
-nnoremap <leader>s :sfind *
-nnoremap <leader>v :vert sfind *
-nnoremap <leader>t :tabfind *
-
-" search under directory of current file
-nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>S :sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>V :vert sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>T :tabfind <C-R>=expand('%:h').'/*'<CR>
-
-
-" Juggle tags
-"nnoremap <leader>t :tjump /
-
 """ wildmenu, wildignore
 
 "" Bash-like autocomplete
@@ -764,14 +665,8 @@ nnoremap <leader>T :tabfind <C-R>=expand('%:h').'/*'<CR>
 "set completeopt=longest,menuone
 set wildmode=list:longest,full
 
-set wildignorecase
-
 " temporary, project, and minified files
 set wildignore=*.swp,*.bak,*.lock
-set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
-
-" source control
-set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 
 " tags
 set wildignore+=tags,TAGS
@@ -810,12 +705,6 @@ set wildignore+=*.pdf,*.svg,*.eps,*.ai,*.png,*.jpg,*.jpeg,*.gif,*.tif,*.tiff
 
 """ end
 
-" A "meta" thing: edit/source (g)vimrc
-nnoremap <silent> <Leader><space>ev :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader><space>eg :edit $MYGVIMRC<CR>
-nnoremap <silent> <Leader><space>sv :source $MYVIMRC<CR>
-nnoremap <silent> <Leader><space>sg :source $MYGVIMRC<CR>
-
 " Remap semicolon to parenthesis
 "nnoremap ; :
 
@@ -825,17 +714,6 @@ nnoremap <silent> <Leader><space>sg :source $MYGVIMRC<CR>
 nnoremap <silent> Q <nop>
 nnoremap <silent> q <nop>
 
-" Don't move around in normal, visual, or operator-pending modes
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-
-" Don't move around in insert mode
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 """" Ctrl-P
 "" <http://kien.github.io/ctrlp.vim/>
@@ -849,16 +727,6 @@ inoremap <right> <nop>
 """  \ 'file': '\v\.(exe|so|dll|jar|pdf|jpg|png|gif|log|bak|class|DS_Store)$',
 """  \ 'link': 'some_bad_symbolic_links',
 """  \ }
-""
-"nnoremap <Leader>p :CtrlP<CR>
-"nnoremap <Leader>P :CtrlPClearAllCaches<CR>
-"
-"" nnoremap <Leader>b :CtrlPBuffer<CR>
-"" nnoremap <Leader>r :CtrlPMRUFiles<CR>
-"
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"""nnoremap <Leader>m :CtrlPMixed<CR>
 ""
 ""nnoremap <Leader>t :CtrlPBufTag<CR>
 """nnoremap <Leader>T :CtrlPBufTagAll<CR>
