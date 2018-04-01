@@ -2,20 +2,26 @@
 "
 " TODO:
 " - helptags?
+"mkdirp -p ~/.vim/pack/my-plugins/start
 "cd ~/.vim/pack/my-plugins/start
-"git clone https://github.com/tpope/vim-surround.git
+"git clone https://github.com/fatih/vim-go.git
+"git clone https://github.com/tpope/vim-commentary.git
+"git clone https://github.com/tpope/vim-fugitive.git
 "git clone https://github.com/tpope/vim-repeat.git
+"git clone https://github.com/tpope/vim-surround.git
 "# https://github.com/tpope/vim-unimpaired.git
 "# https://github.com/tpope/vim-sensible.git
-" git clone https://github.com/fatih/vim-go.git
+"#then run :GoInstall in vim
+"ctags
+"syntax
 "# can extend the following with: autocmd FileType apache setlocal commentstring=#\ %s
-" git clone https://github.com/tpope/vim-commentary.git
-" git clone https://github.com/tpope/vim-fugitive.git
-" " TODO: try to find a use for this one
-" git clone https://github.com/tpope/vim-dispatch.git
-"# git clone git://github.com/tpope/vim-speeddating.git
-" then run :GoInstall in vim
+" TODO: try to find a use for these
+"git clone https://github.com/tpope/vim-dispatch.git "~/.vim/pack/my-plugins/opt"
+"git clone git://github.com/tpope/vim-speeddating.git "~/.vim/pack/my-plugins/opt"
 
+"packadd! vim-dispatch
+"packadd! vim-speeddating
+"packadd! vim-unimpaired
 
 """ default vimrc: https://github.com/vim/vim/blob/master/runtime/defaults.vim
 
