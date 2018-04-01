@@ -205,7 +205,7 @@ nnoremap gb :ls<CR>:b<Space>
 " Adapted from <https://stackoverflow.com/a/16084326>
 
 "" Juggling with files
-set path=.,**
+set path+=**   " Default includes at least .,, (relative to current working directory, plus directory of current file)
 " Find files recursively under curent working directory
 nnoremap <Leader>f :find *
 nnoremap <Leader>s :sfind *
