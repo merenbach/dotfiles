@@ -155,21 +155,10 @@ endif
 
 """ /default vimrc
 
-" " only highlight during search
-" augroup vimrc-incsearch-highlight
-"   autocmd!
-"   autocmd CmdlineEnter /,\? :set hlsearch
-"   autocmd CmdlineLeave /,\? :set nohlsearch
-" augroup END
-
 " vim-go
 let g:go_fmt_command = "goimports"
 
-" vim-gitgutter
-"let g:gitgutter_map_keys = 0
-autocmd BufWritePost * GitGutter
-
-" Hide instead of unload buffers when abandoning them
+" Hide (rather than unload) abandoned buffers
 set hidden
 
 " Line numbers (but see https://github.com/vim/vim/issues/282)
@@ -180,12 +169,12 @@ set relativenumber
 set ignorecase
 set smartcase
 
-" Highlight search results, but disable when <Leader><CR> is pressed
-set hlsearch
-map <Leader><CR> :nohlsearch<CR>
-
 " What characters can wrap between lines?
 "set whichwrap+=<,>,h,l
+
+" Always show status line and give more space for messages
+set laststatus=2
+set cmdheight=2
 
 let mapleader=","
 " used more for certain types of files
@@ -193,6 +182,18 @@ let mapleader=","
 
 " Fast saving
 nnoremap <Leader>w :write!<CR>
+
+" Highlight search results, but disable when <Leader><CR> is pressed
+set hlsearch
+" clear highlight
+nnoremap <Leader>/ :nohlsearch<CR>
+" only highlight during search
+" augroup vimrc-incsearch-highlight
+"   autocmd!
+"   autocmd CmdlineEnter /,\? :set hlsearch
+"   autocmd CmdlineLeave /,\? :set nohlsearch
+" augroup END
+
 
 " Cycle between buffers
 " 'Vim also has <C-^> (or <C-6> on some keyboards)—the normal mode equivalent of :b#—to jump between the current buffer and the previous one. Use it if you often alternate between two buffers.'
@@ -205,7 +206,8 @@ nnoremap gb :ls<CR>:b<Space>
 " Adapted from <https://stackoverflow.com/a/16084326>
 
 "" Juggling with files
-set path+=**   " Default includes at least .,, (relative to current working directory, plus directory of current file)
+" Default includes at least .,, (relative to current working directory, plus directory of current file)
+set path+=**
 " Find files recursively under curent working directory
 nnoremap <Leader>f :find *
 nnoremap <Leader>s :sfind *
@@ -265,3 +267,33 @@ inoremap <Right> <NOP>
 " Toggle paste mode on and off
 set pastetoggle=<Leader>p
 
+
+" Jump for 2/10 of a second when typing matching parens
+set showmatch
+set matchtime=2
+
+
+" misc
+" set magic
+" set lazyredrow
+" change wildmod
+" set wildmode=list:longest,full (from before)
+" set wildmode=longest,list,full (commented out)
+" " temporary, project, and minified files
+" set wildignore=*.swp,*.bak,*.lock
+
+" " tags
+" set wildignore+=tags,TAGS
+
+" " archives
+" set wildignore+=*.tar.*,*.tgz,*.bz2,*.gz,*.tar
+
+" " work at RED Interactive Agency
+" set wildignore+=*/env/**/*
+" set wildignore+=*/node_modules/**/*,*/collected-static/**/*
+
+" " misc
+" set wildignore+=*.db
+
+" " multimedia
+" set wildignore+=*.pdf,*.svg,*.eps,*.ai,*.png,*.jpg,*.jpeg,*.gif,*.tif,*.tiff
