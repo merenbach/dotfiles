@@ -11,6 +11,8 @@
 "# can extend the following with: autocmd FileType apache setlocal commentstring=#\ %s
 " git clone https://github.com/tpope/vim-commentary.git
 " git clone https://github.com/tpope/vim-fugitive.git
+" " TODO: try to find a use for this one
+" git clone https://github.com/tpope/vim-dispatch.git
 "# git clone git://github.com/tpope/vim-speeddating.git
 " then run :GoInstall in vim
 
