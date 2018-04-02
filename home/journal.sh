@@ -202,6 +202,7 @@ install_cli_misc() {
 	MY_INSTALL security/nmap
 	MY_INSTALL sysutils/pwgen
 	MY_INSTALL textproc/dict
+	MY_INSTALL textproc/the_silver_searcher
 }
 install_cli_misc()
 
@@ -214,7 +215,6 @@ install_gui_misc() {
 install_gui_misc()
 
 # misc utils
-MY_INSTALL textproc/the_silver_searcher
 #MY_INSTALL x11/xclip
 #MY_INSTALL security/keychain
 MY_INSTALL sysutils/lsof
