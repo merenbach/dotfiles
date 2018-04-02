@@ -13,7 +13,6 @@
 "git clone https://github.com/tpope/vim-sensible.git
 "git clone https://github.com/tpope/vim-surround.git
 "git clone https://github.com/tpope/vim-unimpaired.git
-"git clone https://github.com/vim-syntastic/syntastic.git
 "#then run :GoInstall in vim
 "ctags
 "syntax
@@ -21,6 +20,7 @@
 " TODO: try to find a use for these
 "git clone https://github.com/tpope/vim-sleuth
 "git clone https://github.com/tpope/vim-speeddating.git
+"git clone https://github.com/vim-syntastic/syntastic.git
 "git clone https://github.com/xolox/vim-easytags.git
 "git clone https://github.com/xolox/vim-misc.git
 
@@ -373,17 +373,3 @@ endif
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
-
-
-
-" vim-syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
-let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" Another issue with `vim-go` and `syntastic` is that the location list window
-" that contains the output of commands such as `:GoBuild` and `:GoTest` might
-" not appear.  To resolve this:
-let g:go_list_type = "quickfix"
