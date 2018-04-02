@@ -189,6 +189,8 @@ nnoremap <leader>G :Grepper -tool ag<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
-" toggle quickfix relatively easily
+" toggle quickfix and location list relatively easily
 nnoremap <leader>cc :cclose<CR>
 nnoremap <leader>co :copen<CR>
+nnoremap <leader>lc :lclose<CR>
+nnoremap <leader>lo :lopen<CR>
