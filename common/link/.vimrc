@@ -325,3 +325,7 @@ nnoremap <leader>g :Grepper -tool git<cr>
 nnoremap <leader>G :Grepper -tool ag<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
+
+" toggle quickfix relatively easily
+nnoremap <leader>cc :cclose<CR>
+nnoremap <leader>co :copen<CR>
