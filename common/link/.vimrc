@@ -9,9 +9,8 @@
 "git clone https://github.com/tpope/vim-fugitive.git
 "git clone https://github.com/tpope/vim-repeat.git
 "git clone https://github.com/tpope/vim-surround.git
-"#git clone https://github.com/xolox/vim-easytags.git
-"#git clone https://github.com/xolox/vim-misc.git
-"# https://github.com/tpope/vim-unimpaired.git
+"git clone https://github.com/mhinz/vim-grepper.git
+"git clone https://github.com/tpope/vim-unimpaired.git
 "# https://github.com/tpope/vim-sensible.git
 "#then run :GoInstall in vim
 "ctags
@@ -20,6 +19,8 @@
 " TODO: try to find a use for these
 "git clone https://github.com/tpope/vim-dispatch.git
 "git clone git://github.com/tpope/vim-speeddating.git
+"git clone https://github.com/xolox/vim-easytags.git
+"git clone https://github.com/xolox/vim-misc.git
 
 "packadd! vim-dispatch
 "packadd! vim-speeddating
@@ -234,8 +235,8 @@ nnoremap <Leader>T :tabfind <C-R>=expand('%:h').'/*'<CR>
 set wildcharm=<C-z>
 nnoremap <Leader>b :buffer <C-z><S-Tab>
 nnoremap <Leader>B :sbuffer <C-z><S-Tab>
-nnoremap <PageUp>   :bprevious<CR>
-nnoremap <PageDown> :bnext<CR>
+"nnoremap <PageUp>   :bprevious<CR>
+"nnoremap <PageDown> :bnext<CR>
 
 "" Juggling withh tags
 nnoremap <Leader>j :tjump /
@@ -317,3 +318,10 @@ set matchtime=2
 " let g:easytags_events = ['BufWritePost']
 " let g:easytags_on_cursorhold = 0
 " let g:easytags_resolve_links = 1
+
+
+" vim-grepper
+nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>G :Grepper -tool ag<cr>
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
