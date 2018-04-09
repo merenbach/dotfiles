@@ -1,6 +1,6 @@
 #! /bin/sh
 
-exec rclone copy --modify-window=1s /home remote:chitsa-backup-20171221 --transfers 1 --skip-links --exclude-from "$HOME/src/dotfiles/home/backup.exclude" "$@"
+exec rclone sync --modify-window=1s /home remote:chitsa-backup-20171221 --transfers 1 --skip-links --exclude-from "$HOME/src/dotfiles/home/backup.exclude" "$@"
 
 #exec rclone sync /home remote:chitsa-backup-20171221 --transfers 1 --skip-links --exclude "/andrew/Pictures/old-big-pics/**" --exclude "/andrew/.cache/**" --exclude "/andrew/.CloudStationBackup/**" --exclude "/andrew/Downloads/**" --exclude "/andrew/.PlayOnLinux/**" --exclude "/andrew/.wine/**" --exclude "/andrew/GOG Games/**" --exclude "/andrew/Music/Library/**" "$@"
 
