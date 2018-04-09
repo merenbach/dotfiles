@@ -210,6 +210,7 @@ install_gui_misc() {
 	MY_INSTALL security/keepassx2
 	MY_INSTALL x11/rxvt-unicode
 	MY_INSTALL x11/urxvt-perls
+	MY_INSTALL graphics/xpdf
 	MY_INSTALL x11/xsel
 }
 install_gui_misc()
@@ -239,7 +240,6 @@ MY_INSTALL www/firefox
 # [TODO] sysctl kern.ipc.shm_allow_removed=1
 MY_INSTALL multimedia/mpv
 MY_INSTALL multimedia/vlc
-MY_INSTALL graphics/xpdf
 MY_INSTALL audio/clementine-player
 
 MY_INSTALL audio/exaile
@@ -256,7 +256,9 @@ MY_INSTALL graphics/geeqie
 # coding
 install_coding() {
 	MY_INSTALL devel/git
+	MY_INSTALL devel/hs-cabal-install
 	MY_INSTALL editors/vim
+	MY_INSTALL lang/ghc
 	MY_INSTALL lang/go
 	MY_INSTALL lang/python3
 	MY_INSTALL lang/racket-minimal
