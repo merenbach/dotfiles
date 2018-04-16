@@ -32,14 +32,9 @@
 " Import defaults.vim
 runtime! defaults.vim
 
-" vim-go
-" let g:go_list_type = "quickfix"
-" g:go_auto_type_info = 0
-let g:go_fmt_command = "goimports"
-let g:go_metalinter_autosave = 0
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'varcheck']
-" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'aligncheck', 'ineffassign', 'gosimple', 'staticcheck']
-let g:go_metalinter_deadline = '10s'
+let mapleader=","
+" used more for certain types of files
+"let maplocalleader = "\\"
 
 " Hide (rather than unload) abandoned buffers
 set hidden
@@ -58,10 +53,6 @@ set smartcase
 " Always show status line and give more space for messages
 set laststatus=2
 set cmdheight=2
-
-let mapleader=","
-" used more for certain types of files
-"let maplocalleader = "\\"
 
 " Fast saving
 nnoremap <Leader>w :write!<CR>
@@ -201,3 +192,13 @@ nnoremap <leader>cc :cclose<CR>
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>lo :lopen<CR>
+
+" vim-go
+" let g:go_list_type = "quickfix"
+" g:go_auto_type_info = 0
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'varcheck']
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'aligncheck', 'ineffassign', 'gosimple', 'staticcheck']
+let g:go_metalinter_deadline = '10s'
+nnoremap <leader>m :GoMetaLinter<CR>
