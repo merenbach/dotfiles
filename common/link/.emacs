@@ -32,18 +32,28 @@
 
 (use-package evil
   :ensure t
+  :init
+  (setq evil-want-integration nil)
   :config
   (evil-mode 1))
 
 (use-package evil-commentary
+  :after evil
   :ensure t
   :config
   (evil-commentary-mode))
 
 (use-package evil-surround
+  :after evil
   :ensure t
   :config
   (global-evil-surround-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 (use-package flycheck
   :ensure t
