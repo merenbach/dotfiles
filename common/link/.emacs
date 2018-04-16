@@ -1,6 +1,9 @@
+;;; .emacs --- Initialization file for Emacs
+;;; Commentary: Emacs Startup File --- initialization for Emacs
+
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-		 ("melpa" . "https://melpa.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 ;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
@@ -22,20 +25,38 @@
 
 (setq column-number-mode t)
 
-(global-linum-mode 1)
+; (global-linum-mode 1)
 ;(setq linum-format "%d ")
 ;(setq linum-format 'dynamic)
 
 
-(require 'evil)
-(evil-mode 1)
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1))
 
-(evil-commentary-mode)
+(use-package evil-commentary
+  :ensure t
+  :config
+  (evil-commentary-mode))
 
 (use-package evil-surround
   :ensure t
   :config
   (global-evil-surround-mode 1))
+
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode)
+  (setq flycheck-highlighting-mode 'lines))
+
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-mode))
+
+(projectile-global-mode)
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -53,7 +74,7 @@
 (defvar my-electic-pair-modes '(go-mode js-mode json-mode emacs-lisp-mode python-mode org-mode))
 
 (defun my-inhibit-electric-pair-mode (char)
-(not (member major-mode my-electic-pair-modes)))
+  (not (member major-mode my-electic-pair-modes)))
 
 (setq electric-pair-inhibit-predicate #'my-inhibit-electric-pair-mode)
 
@@ -85,29 +106,24 @@
 ; https://www.emacswiki.org/emacs/WholeLineOrRegion
 (put 'kill-region 'interactive-form      
      '(interactive
-       (if (use-region-p)
-           (list (region-beginning) (region-end))
-         (list (line-beginning-position) (line-beginning-position 2)))))
+        (if (use-region-p)
+          (list (region-beginning) (region-end))
+          (list (line-beginning-position) (line-beginning-position 2)))))
 (defun my-kill-ring-save (beg end flash)
   (interactive (if (use-region-p)
-                   (list (region-beginning) (region-end) nil)
+                 (list (region-beginning) (region-end) nil)
                  (list (line-beginning-position)
                        (line-beginning-position 2) 'flash)))
   (kill-ring-save beg end)
   (when flash
     (save-excursion
       (if (equal (current-column) 0)
-          (goto-char end)
+        (goto-char end)
         (goto-char beg))
       (sit-for blink-matching-delay))))
 (global-set-key [remap kill-ring-save] 'my-kill-ring-save)
 
 ;(require 'linum-off)
-
-(counsel-projectile-mode)
-(projectile-global-mode)
-(global-flycheck-mode)
-(setq flycheck-highlighting-mode 'lines)
 
 ;(require 'nlinum-relative)
 ;(nlinum-relative-setup-evil)
@@ -115,7 +131,7 @@
 ;(setq nlinum-relative-redisplay-delay 0)
 
 (if (display-graphic-p)
-    (load-theme 'solarized-light t))
+  (load-theme 'solarized-light t))
 
 ;(setq company-idle-delay 1)
 ;(setq company-minimum-prefix-length 2)
@@ -123,22 +139,22 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (with-eval-after-load 'org
-    (setq org-startup-indented 1))
+                      (setq org-startup-indented 1))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (evil-commentary evil-surround evil company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
+  '(package-selected-packages
+     (quote
+       (evil-commentary evil-surround evil company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+  )
 
 (when (eq system-type 'darwin)
 
@@ -154,7 +170,8 @@
 
   ;; you may want to add different for other charset in this way.
   )
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+
+;(put 'upcase-region 'disabled nil)
+;(put 'downcase-region 'disabled nil)
 
 ; (profiler-start 'cpu+mem)
