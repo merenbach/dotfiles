@@ -56,6 +56,8 @@
   :config
   (counsel-projectile-mode))
 
+(evilem-default-keybindings "SPC")
+
 (projectile-global-mode)
 
 ; magit
@@ -146,15 +148,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-  '(package-selected-packages
-     (quote
-       (evil-commentary evil-surround evil company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
+ '(package-selected-packages
+   (quote
+    (evil-easymotion evil-commentary evil-surround evil company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-  )
+ )
 
 (when (eq system-type 'darwin)
 
