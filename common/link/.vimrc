@@ -4,6 +4,7 @@
 " - helptags?
 "mkdirp -p ~/.vim/pack/my-plugins/start
 "cd ~/.vim/pack/my-plugins/start
+"git clone https://github.com/easymotion/vim-easymotion.git
 "git clone https://github.com/fatih/vim-go.git
 "git clone https://github.com/mhinz/vim-grepper.git
 "git clone https://github.com/tpope/vim-commentary.git
@@ -44,7 +45,7 @@ let g:go_metalinter_deadline = '10s'
 set hidden
 
 " Line numbers (but see https://github.com/vim/vim/issues/282)
-set relativenumber
+"set relativenumber
 "set number
 
 " Ignore case only in lower-case searches
