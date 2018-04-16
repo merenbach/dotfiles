@@ -27,8 +27,15 @@
 ;(setq linum-format 'dynamic)
 
 
-;(require 'evil)
-;(evil-mode 1)
+(require 'evil)
+(evil-mode 1)
+
+(evil-commentary-mode)
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -107,9 +114,6 @@
 ;(add-hook 'prog-mode-hook 'nlinum-relative-mode)
 ;(setq nlinum-relative-redisplay-delay 0)
 
-;(require 'evil-surround)
-;(global-evil-surround-mode 1)
-
 (if (display-graphic-p)
     (load-theme 'solarized-light t))
 
@@ -128,7 +132,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
+    (evil-commentary evil-surround evil company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck linum-off magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -152,3 +156,5 @@
   )
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+; (profiler-start 'cpu+mem)
