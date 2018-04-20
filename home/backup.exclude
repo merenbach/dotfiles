@@ -3,6 +3,7 @@
 *.pyc
 .CloudStationBackup/**
 .PlayOnLinux/**
+.cabal/**
 .cache/**
 .config/**
 .dbus/**
