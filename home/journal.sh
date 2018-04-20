@@ -202,6 +202,7 @@ install_cli_misc() {
 	MY_INSTALL security/nmap
 	MY_INSTALL sysutils/pwgen
 	MY_INSTALL textproc/dict
+	MY_INSTALL textproc/jq
 	MY_INSTALL textproc/the_silver_searcher
 }
 install_cli_misc()
@@ -257,6 +258,7 @@ MY_INSTALL graphics/geeqie
 install_coding() {
 	MY_INSTALL devel/git
 	MY_INSTALL devel/hs-cabal-install
+	# MY_INSTALL devel/stack
 	MY_INSTALL editors/vim
 	MY_INSTALL lang/ghc
 	MY_INSTALL lang/go

@@ -4,15 +4,18 @@
 " - helptags?
 "mkdirp -p ~/.vim/pack/my-plugins/start
 "cd ~/.vim/pack/my-plugins/start
+"git clone https://github.com/alx741/vim-hindent.git
 "git clone https://github.com/easymotion/vim-easymotion.git
 "git clone https://github.com/fatih/vim-go.git
 "git clone https://github.com/mhinz/vim-grepper.git
+"git clone https://github.com/neovimhaskell/haskell-vim.git
 "git clone https://github.com/tpope/vim-commentary.git
 "git clone https://github.com/tpope/vim-dispatch.git
 "git clone https://github.com/tpope/vim-fugitive.git
 "git clone https://github.com/tpope/vim-repeat.git
 "git clone https://github.com/tpope/vim-sensible.git
 "git clone https://github.com/tpope/vim-surround.git
+"cabal update; cabal install happy hindent
 "#then run :GoInstall in vim
 "ctags
 "syntax
@@ -141,8 +144,8 @@ set pastetoggle=<Leader>p
 
 
 " Jump for 2/10 of a second when typing matching parens
-set showmatch
-set matchtime=2
+" set showmatch
+" set matchtime=2
 
 
 " misc
