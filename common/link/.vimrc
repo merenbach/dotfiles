@@ -14,6 +14,7 @@
 "git clone https://github.com/tpope/vim-fugitive.git
 "git clone https://github.com/tpope/vim-repeat.git
 "git clone https://github.com/tpope/vim-sensible.git
+"git clone https://github.com/tpope/vim-sleuth.git
 "git clone https://github.com/tpope/vim-surround.git
 "cabal update; cabal install happy hindent
 "#then run :GoInstall in vim
@@ -21,7 +22,6 @@
 "syntax
 "# can extend commentary with: autocmd FileType apache setlocal commentstring=#\ %s
 " TODO: try to find a use for these
-"git clone https://github.com/tpope/vim-sleuth.git
 "git clone https://github.com/tpope/vim-speeddating.git
 "git clone https://github.com/tpope/vim-unimpaired.git
 "git clone https://github.com/vim-syntastic/syntastic.git
