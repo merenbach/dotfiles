@@ -30,30 +30,36 @@
 ;(setq linum-format 'dynamic)
 
 
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-integration nil)
-  :config
-  (evil-mode 1))
+; (use-package evil
+;   :ensure t
+;   :init
+;   (setq evil-want-integration nil)
+;   :config
+;   (evil-mode 1))
 
-(use-package evil-commentary
-  :after evil
-  :ensure t
-  :config
-  (evil-commentary-mode))
+; (use-package evil-commentary
+;   :after evil
+;   :ensure t
+;   :config
+;   (evil-commentary-mode))
 
-(use-package evil-surround
-  :after evil
-  :ensure t
-  :config
-  (global-evil-surround-mode 1))
+; (use-package evil-surround
+;   :after evil
+;   :ensure t
+;   :config
+;   (global-evil-surround-mode 1))
 
-(use-package evil-collection
-  :after evil
+; (use-package evil-collection
+;   :after evil
+;   :ensure t
+;   :config
+;   (evil-collection-init))
+
+(use-package avy
   :ensure t
   :config
-  (evil-collection-init))
+  (avy-setup-default)
+  (global-set-key (kbd "C-c C-j") 'avy-resume))
 
 (use-package flycheck
   :ensure t
@@ -61,17 +67,56 @@
   (global-flycheck-mode)
   (setq flycheck-highlighting-mode 'lines))
 
-(use-package counsel-projectile
+(use-package projectile
   :ensure t
   :config
+  (projectile-global-mode))
+
+(use-package ivy
+  :after flx
+  :ensure t
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
+  (minibuffer-depth-indicate-mode 1)
+
+  ; Ivy-based interface to standard commands
+  (global-set-key (kbd "C-s") 'swiper)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+  (global-set-key (kbd "<f1> l") 'counsel-find-library)
+  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  
+  ; Ivy-based interface to shell and system tools
+  (global-set-key (kbd "C-c g") 'counsel-git)
+  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "C-x l") 'counsel-locate)
+  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+  
+  ; Ivy-resume and other commands
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+
+  (ivy-mode 1))
+
+(use-package counsel-projectile
+  :after projectile
+  :after ivy
+  :ensure t
+  :config
+  (setq counsel-find-file-ignore-regexp "\\(?:\\`[#.]\\)\\|\\(?:[#~]\\'\\)")
   (counsel-projectile-mode))
 
-(evilem-default-keybindings "SPC")
+(use-package magit
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x g") 'magit-status))
 
-(projectile-global-mode)
-
-; magit
-(global-set-key (kbd "C-x g") 'magit-status)
+; (evilem-default-keybindings "SPC")
 
 ; autopair
 (electric-pair-mode 1)
@@ -90,30 +135,9 @@
 
 (setq electric-pair-inhibit-predicate #'my-inhibit-electric-pair-mode)
 
-(ivy-mode 1)
-(setq ivy-re-builders-alist
-      '((read-file-name-internal . ivy--regex-fuzzy)
-        (t . ivy--regex-plus)))
-(setq ivy-use-virtual-buffers t)
-(setq counsel-find-file-ignore-regexp "\\(?:\\`[#.]\\)\\|\\(?:[#~]\\'\\)")
-(setq enable-recursive-minibuffers t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-;(global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-;(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-;(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-;(global-set-key (kbd "<f1> l") 'counsel-find-library)
-;(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-;(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-;(global-set-key (kbd "C-c C-u") 'counsel-unicode-char)
-;(global-set-key (kbd "C-c g") 'counsel-git)
-;(global-set-key (kbd "C-c j") 'counsel-git-grep)
-;(global-set-key (kbd "C-c k") 'counsel-ag)
-;(global-set-key (kbd "C-x l") 'counsel-locate)
-;(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-;(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+; (setq ivy-re-builders-alist
+;       '((read-file-name-internal . ivy--regex-fuzzy)
+;         (t . ivy--regex-plus)))
 
 ; https://www.emacswiki.org/emacs/WholeLineOrRegion
 (put 'kill-region 'interactive-form      
@@ -160,7 +184,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-easymotion evil-commentary evil-surround evil company-go protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck magit ag counsel-projectile))))
+    (flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
