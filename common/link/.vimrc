@@ -196,6 +196,9 @@ nnoremap <leader>co :copen<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>lo :lopen<CR>
 
+" vim-easymotion with Dvorak combas
+let g:EasyMotion_keys = "aoeidtn',.pyfgcrl;qjkxbmuhs"
+
 " vim-go
 " let g:go_list_type = "quickfix"
 " g:go_auto_type_info = 0
