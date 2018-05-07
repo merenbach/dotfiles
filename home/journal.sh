@@ -18,7 +18,7 @@ WHICH_MAKE=/usr/bin/make
 
 #[TODO] /etc/make.conf
 # https://chriswells.io/blog/using-quarterly-ports-on-freebsd
-/usr/bin/svnlite checkout https://svn.freebsd.org/ports/branches/2018Q1 /usr/ports
+/usr/bin/svnlite checkout https://svn.freebsd.org/ports/branches/2018Q2 /usr/ports
 # when it's time to update...
 # /usr/bin/svnlite switch https://svn.freebsd.org/ports/branches/20YYQN... /usr/ports
 # /usr/bin/svnlite update /usr/ports
