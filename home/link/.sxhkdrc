@@ -11,7 +11,7 @@ super + Return
 	urxvt
 
 # program launcher
-super + @space
+super + r
 	rofi -show run
 
 # make sxhkd reload its configuration files:
