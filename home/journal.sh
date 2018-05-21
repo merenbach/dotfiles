@@ -283,34 +283,24 @@ MY_INSTALL security/openssh-askpass
 #[TODO] MY_INSTALL deskutils/gucharmap
 #[TODO] MY_INSTALL deskutils/gourmet
 
-# gaming
-install_emulators() {
-	MY_INSTALL emulators/dosbox
-	MY_INSTALL emulators/i386-wine-devel
-	/bin/sh /usr/local/share/wine/patch-nvidia.sh
-	MY_INSTALL emulators/winetricks
-	#winetricks install gdiplus
-	#winetricks install dotnet40
+# gaming emulators
+pkg install -y emulators/dosbox
+pkg install -y emulators/i386-wine-devel
+pkg install -y emulators/wine-gecko-devel
+pkg install -y emulators/wine-mono-devel
+/bin/sh /usr/local/share/wine/patch-nvidia.sh
+pkg install -y emulators/winetricks
+#winetricks install gdiplus
+#winetricks install dotnet40
 #MY_INSTALL emulators/playonbsd
-}
-install_emulators()
 
-# virtualization
-pw group mod vboxusers -m "${MY_USER}"
-sysrc kld_list+="vboxdrv"
-sysrc vboxnet_enable="YES"
-kldload vboxdrv
-service vboxnet start
-
-install_games() {
-	MY_INSTALL games/alephone
-	MY_INSTALL games/alephone-data
-	MY_INSTALL games/alephone-scenarios
-	MY_INSTALL games/angband
-	MY_INSTALL games/scummvm
-	MY_INSTALL games/scummvm-tools
-}
-install_games()
+# install games
+pkg install -y games/alephone
+pkg install -y games/alephone-data
+pkg install -y games/alephone-scenarios
+pkg install -y games/angband
+pkg install -y games/scummvm
+pkg install -y games/scummvm-tools
 
 # TODO: TEXT ADVENTURES
 #[TODO]MY_INSTALL games/zangband
@@ -349,3 +339,10 @@ install_games()
 #   command: /usr/bin/env WINEPREFIX="{{ wine_prefix }}" wine "{{ fallout2.patch_exe }}" creates="{{ fallout2.full_path }}/fallout2.cfg_orig"
 #   tags: configuration
 
+
+# virtualization
+pw group mod vboxusers -m "${MY_USER}"
+sysrc kld_list+="vboxdrv"
+sysrc vboxnet_enable="YES"
+kldload vboxdrv
+service vboxnet start
