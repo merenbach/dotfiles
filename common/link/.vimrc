@@ -16,6 +16,7 @@
 "git clone https://github.com/tpope/vim-sensible.git
 "git clone https://github.com/tpope/vim-sleuth.git
 "git clone https://github.com/tpope/vim-surround.git
+"git clone https://github.com/rust-lang/rust.vim ~/.vim/pack/plugins/start/rust.vim
 "cabal update; cabal install happy hindent
 "#then run :GoInstall in vim
 "ctags
@@ -205,7 +206,8 @@ let g:EasyMotion_keys = "aoeidtn',.pyfgcrl;qjkxbmuhs"
 let g:go_fmt_command = "goimports"
 " let g:go_metalinter_autosave = 0
 " let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'varcheck']
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'ineffassign', 'megacheck']
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'ineffassign']
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'ineffassign', 'megacheck']
 " let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'maligned', 'ineffassign', 'gosimple', 'staticcheck']
 let g:go_metalinter_deadline = '30s'
 nnoremap <leader>m :GoMetaLinter<CR>
