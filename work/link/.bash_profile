@@ -3,3 +3,5 @@ export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export GOPATH=$HOME/go
 . ~/.bashrc
+
+export PATH="$HOME/.cargo/bin:$PATH"

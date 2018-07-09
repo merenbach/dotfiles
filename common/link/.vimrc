@@ -211,3 +211,6 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'ineffas
 " let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'varcheck', 'maligned', 'ineffassign', 'gosimple', 'staticcheck']
 let g:go_metalinter_deadline = '30s'
 nnoremap <leader>m :GoMetaLinter<CR>
+
+
+let g:rustfmt_autosave = 1
