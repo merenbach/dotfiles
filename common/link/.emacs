@@ -67,11 +67,14 @@
   ; (global-set-key (kbd "M-g e") 'avy-goto-word-0)
   (global-set-key (kbd "C-c C-j") 'avy-resume))
 
-; (use-package flycheck
-;   :ensure t
-;   :config
-;   (global-flycheck-mode)
-;   (setq flycheck-highlighting-mode 'lines))
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode)
+  (setq flycheck-highlighting-mode 'lines))
+
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (use-package projectile
   :ensure t
@@ -194,7 +197,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck magit ag counsel-projectile))))
+    (flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck magit ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
