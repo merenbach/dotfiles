@@ -1,8 +1,8 @@
 #! /bin/sh
-userresources=$HOME/.Xdefaults
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
-fi
+#userresources=$HOME/.Xdefaults
+#if [ -f "$userresources" ]; then
+#    xrdb -merge "$userresources"
+#fi
 
 # Disable bell
 xset -b
@@ -20,7 +20,7 @@ setxkbmap -option caps:swapescape
 xmodmap -e 'pointer = 1 2 3 5 4'
 
 #pgrep xbindkeys || xbindkeys
-xautolock &
+xautolock -time 10 -locker /usr/bin/slock &
 
 # Start compositor
 compton -b
@@ -31,7 +31,7 @@ compton -b
 
 # Set mouse acceleration (2.0) and threshold (2px)
 # (Before tweaking, make sure mouse doesn't have its own hardware switch!)
-xset mouse 20/16 4
+#xset mouse 20/16 4
 
 # turn off screen after ten minutes
 xset dpms 600 600 600
@@ -40,11 +40,11 @@ xset dpms 600 600 600
 feh --bg-fill "$HOME/wallpaper"
 
 # Start the WM now
-#exec /usr/local/bin/fvwm
+exec /usr/bin/fvwm
 
 # Start i3 and log to ~/.i3/logfile
 #echo "Starting at `date`" >> ~/.i3/logfile
 #/usr/local/bin/sxhkd &
-exec /usr/local/bin/bspwm -c ~/.bspwmrc
+#exec /usr/local/bin/bspwm -c ~/.bspwmrc
 #exec /usr/local/bin/fvwm
 #exec /usr/local/bin/i3 -V -d all >> ~/.i3logfile
