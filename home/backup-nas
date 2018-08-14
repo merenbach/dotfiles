@@ -4,4 +4,5 @@ SOURCE="/home/"
 TARGET=andrew@sulik:backup
 
 #eval rsync --backup --backup-dir=`date +%Y.%m.%d` -avz --no-links --exclude=.cache --exclude='*.pyc' --exclude='.local' --exclude='*.core' --exclude='.dbus' --exclude='.racket' "${SOURCE}" "${TARGET}"
-eval rsync --backup --backup-dir=`date +%Y.%m.%d` --progress -avh --exclude-from="$HOME/src/dotfiles/home/backup.exclude" --exclude='.racket' "${SOURCE}" "${TARGET}" "$@"
+# exec rsync --backup --backup-dir=`date +%Y.%m.%d` --progress -avh --exclude-from="$HOME/src/dotfiles/home/backup.exclude" --exclude='.racket' "${SOURCE}" "${TARGET}" "$@"
+exec rsync --backup --backup-dir=../`date +%Y.%m.%d` --progress -avh --exclude-from="$HOME/src/dotfiles/home/backup.exclude" "${SOURCE}" "${TARGET}" "$@"
