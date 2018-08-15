@@ -1,0 +1,35 @@
+
+
+HOME_DEVICE=/dev/sdX
+HOME_VOLUME=/dev/sdX1
+/usr/bin/fdisk "${HOME_DEVICE}"
+/usr/bin/mkfs.xfs "${HOME_VOLUME}"
+HOME_UUID=/usr/bin/blkid -o value -s UUID "${HOME_VOLUME}"
+echo "UUID=${HOME_UUID} /home xfs defaults,discard 0 1" >> /etc/fstab
+
+xbps-install -Su
+xbps-install -Rs xorg fvwm xterm
+xbps-install -Rs smartmontools
+xbps-install -Rs openntpd
+xbps-install -Rs compton
+xbps-install -Rs gimp
+xbps-install -Rs xpdf
+xbps-install -Rs rsync rclone
+xbps-install -Rs scummvm
+xbps-install -Rs dosbox
+xbps-install -Rs firefox chromium
+xbps-install -Rs vim emacs
+xbps-install -Rs git sloccount
+xbps-install -Rs go
+xbps-install -Rs angband
+xbps-install -Rs winetricks
+xbps-install -Rs playonlinux gettext
+xbps-install -Rs rofi
+xbps-install -Rs keepassx2
+xbps-install -Rs pwgen
+xbps-install -Rs xautolock xlockmore
+xbps-install -Rs calc
+xbps-install -Rs hugo
+xbps-install -Rs pandoc
+
+makewhatis /usr/share/man

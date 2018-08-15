@@ -19,8 +19,7 @@ setxkbmap -option caps:swapescape
 # Reverse scroll direction
 xmodmap -e 'pointer = 1 2 3 5 4'
 
-pgrep xbindkeys || xbindkeys
-xautolock -time 10 -locker /usr/bin/slock &
+xautolock -time 10 -locker "/usr/bin/xlock -dpmsoff 5 -bg black -fg white" &
 
 # Start compositor
 compton -b

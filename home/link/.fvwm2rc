@@ -30,6 +30,7 @@
 # The following is used in various menus and also sets the terminal
 # that FvwmConsole uses. Change this to your terminal of choice
 InfoStoreAdd terminal xterm
+InfoStoreAdd launcher "rofi -show run"
 
 ###########
 # 1: Functions
@@ -451,7 +452,8 @@ AddToMenu   MenuFvwmManPages "Help" Title
 
 # Alt-F1 or Menu to load the root menu and Alt-Tab for a WindowList.
 # Ctrl-F1/F2/F3/F4 will switch between the Virtual Desktops.
-# Super_R (windows key) will launch a terminal.
+# Mod4 (windows key) plus Return will launch a terminal.
+# Mod4 (windows key) plus r will launch a program launcher.
 #
 # Silent supresses any errors (such as keyboards with no Menu key).
 Silent Key F1 A M Menu MenuFvwmRoot
@@ -461,7 +463,8 @@ Silent Key F1 A C GotoDesk 0 0
 Silent Key F2 A C GotoDesk 0 1
 Silent Key F3 A C GotoDesk 0 2
 Silent Key F4 A C GotoDesk 0 3
-Silent Key Super_R A A Exec exec $[infostore.terminal]
+Silent Key Return A 4 Exec exec $[infostore.terminal]
+Silent Key r A 4 Exec exec $[infostore.launcher]
 
 # Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
 #   1 - Open the WindowOps menu.
