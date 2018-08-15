@@ -1,9 +1,11 @@
 ! xautolock settings
-!Xautolock.time:     10
-!Xautolock.locker:   /usr/local/bin/xlock
+Xautolock.time:     10
+Xautolock.locker:   /usr/bin/xlock
 
 XLock.mode:         blank
 XLock.dpmsoff:      5
+XLock.background:   black
+XLock.foreground:   white
 
 !! Xft
 !Xft.dpi: 96
