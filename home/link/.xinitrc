@@ -17,7 +17,7 @@ setxkbmap -option caps:swapescape
 #setxkbmap ....
 
 # Reverse scroll direction
-xmodmap -e 'pointer = 1 2 3 5 4'
+# xmodmap -e 'pointer = 1 2 3 5 4'
 
 xautolock &
 

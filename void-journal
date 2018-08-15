@@ -31,5 +31,8 @@ xbps-install -Rs xautolock xlockmore
 xbps-install -Rs calc
 xbps-install -Rs hugo
 xbps-install -Rs pandoc
+xbps-install -Rs the_silver_searcher
+xbps-install -Rs clementine
+#xbps-install -Rs LGOGDownloader
 
 makewhatis /usr/share/man
