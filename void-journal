@@ -12,12 +12,15 @@ xbps-install -Rs xorg fvwm xterm
 
 xbps-install -Rs dbus
 ln -s /etc/sv/dbus /var/service/
+sv up dbus
 
 xbps-install -Rs smartmontools
 ln -s /etc/sv/smartd /var/service/
+sv up smartd
 
 xbps-install -Rs openntpd
 ln -s /etc/sv/ntpd /var/service/
+sv up ntpd
 
 xbps-install -Rs compton
 xbps-install -Rs gimp
@@ -43,6 +46,7 @@ xbps-install -Rs the_silver_searcher
 
 xbps-install -Rs cups cups-filters
 ln -s /etc/sv/cupsd /var/service/
+sv up cupsd
 
 xbps-install -Rs hplip
 # requires DBUS
@@ -56,7 +60,5 @@ lpoptions -d HP_LaserJet_P2055dn
 #xbps-install -Rs gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 echo "options snd_usb_audio index=0" > /etc/modprobe.d/alsa-base.conf
-
-#ln -s /etc/sv/dbus /var/service/
 
 makewhatis /usr/share/man
