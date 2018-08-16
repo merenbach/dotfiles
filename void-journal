@@ -32,7 +32,8 @@ xbps-install -Rs calc
 xbps-install -Rs hugo
 xbps-install -Rs pandoc
 xbps-install -Rs the_silver_searcher
-xbps-install -Rs clementine
 #xbps-install -Rs LGOGDownloader
+#xbps-install -Rs clementine
+#xbps-install -Rs gst-plugins-good gst-plugins-bad gst-plugins-ugly
 
 makewhatis /usr/share/man

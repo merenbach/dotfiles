@@ -31,6 +31,7 @@
 # that FvwmConsole uses. Change this to your terminal of choice
 InfoStoreAdd terminal xterm
 InfoStoreAdd launcher "rofi -show run"
+InfoStoreAdd locker "xautolock -locknow"
 
 ###########
 # 1: Functions
@@ -465,6 +466,7 @@ Silent Key F3 A C GotoDesk 0 2
 Silent Key F4 A C GotoDesk 0 3
 Silent Key Return A 4 Exec exec $[infostore.terminal]
 Silent Key r A 4 Exec exec $[infostore.launcher]
+Silent Key l A 4 Exec exec $[infostore.locker]
 
 # Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
 #   1 - Open the WindowOps menu.
