@@ -9,8 +9,16 @@ echo "UUID=${HOME_UUID} /home xfs defaults,discard 0 1" >> /etc/fstab
 
 xbps-install -Su
 xbps-install -Rs xorg fvwm xterm
+
+xbps-install -Rs dbus
+ln -s /etc/sv/dbus /var/service/
+
 xbps-install -Rs smartmontools
+ln -s /etc/sv/smartd /var/service/
+
 xbps-install -Rs openntpd
+ln -s /etc/sv/ntpd /var/service/
+
 xbps-install -Rs compton
 xbps-install -Rs gimp
 xbps-install -Rs xpdf
@@ -32,8 +40,19 @@ xbps-install -Rs calc
 xbps-install -Rs hugo
 xbps-install -Rs pandoc
 xbps-install -Rs the_silver_searcher
+
+# requires DBUS
+hp-setup -i
+
+xbps-install -Rs cups cups-filters hplip
+ln -s /etc/sv/cupsd /var/service/
+
 #xbps-install -Rs LGOGDownloader
 #xbps-install -Rs clementine
 #xbps-install -Rs gst-plugins-good gst-plugins-bad gst-plugins-ugly
+
+echo "options snd_usb_audio index=0" > /etc/modprobe.d/alsa-base.conf
+
+#ln -s /etc/sv/dbus /var/service/
 
 makewhatis /usr/share/man
