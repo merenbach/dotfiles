@@ -36,6 +36,7 @@ xbps-install -Rs angband
 xbps-install -Rs winetricks
 xbps-install -Rs playonlinux gettext
 xbps-install -Rs rofi
+xbps-install -Rs bind-utils
 xbps-install -Rs keepassx2
 xbps-install -Rs pwgen
 xbps-install -Rs xautolock xlockmore
