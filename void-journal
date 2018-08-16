@@ -41,11 +41,15 @@ xbps-install -Rs hugo
 xbps-install -Rs pandoc
 xbps-install -Rs the_silver_searcher
 
+xbps-install -Rs cups cups-filters
+ln -s /etc/sv/cupsd /var/service/
+
+xbps-install -Rs hplip
 # requires DBUS
 hp-setup -i
 
-xbps-install -Rs cups cups-filters hplip
-ln -s /etc/sv/cupsd /var/service/
+lpoptions -d HP_LaserJet_P2055dn
+
 
 #xbps-install -Rs LGOGDownloader
 #xbps-install -Rs clementine
