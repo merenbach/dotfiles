@@ -8,6 +8,13 @@ HOME_UUID=/usr/bin/blkid -o value -s UUID "${HOME_VOLUME}"
 echo "UUID=${HOME_UUID} /home xfs defaults,discard 0 1" >> /etc/fstab
 
 xbps-install -Su
+
+xbps-install -Rs void-repo-nonfree
+xbps-install -S
+
+xbps-install -Rs intel-ucode
+xbps-install -Rs linux-firmware
+
 xbps-install -Rs xorg fvwm xterm
 
 xbps-install -Rs dbus
@@ -41,6 +48,7 @@ xbps-install -Rs keepassx2
 xbps-install -Rs pwgen
 xbps-install -Rs xautolock xlockmore
 xbps-install -Rs calc
+xbps-install -Rs libreoffice
 xbps-install -Rs hugo
 xbps-install -Rs pandoc
 xbps-install -Rs the_silver_searcher
