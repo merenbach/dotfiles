@@ -36,10 +36,10 @@ compton -b
 xset dpms 600 600 600
 
 # Set wallpaper
-feh --bg-fill "$HOME/wallpaper"
+#feh --bg-fill "$HOME/wallpaper"
 
 # Start the WM now
-exec /usr/bin/fvwm
+exec /usr/local/bin/fvwm
 
 # Start i3 and log to ~/.i3/logfile
 #echo "Starting at `date`" >> ~/.i3/logfile
