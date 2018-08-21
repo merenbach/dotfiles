@@ -75,11 +75,6 @@ install "x11-wm/compton"
 
 install "shells/bash"
 install "shells/bash-completion"
-#TODO: To enable the bash completion library, add the following to
-#your .bashrc file:
-#
-#[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
-#        source /usr/local/share/bash-completion/bash_completion.sh
 
 chsh -s /usr/local/bin/bash andrew
 

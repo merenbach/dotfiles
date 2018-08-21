@@ -6,6 +6,9 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
+        source /usr/local/share/bash-completion/bash_completion.sh
+
 
 # some useful aliases
 alias h='fc -l'
