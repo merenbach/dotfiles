@@ -51,10 +51,6 @@ zfs()
 sysrc linux_enable="YES"
 kldload linux
 
-# video and desktop
-nvidia-xconfig --add-argb-glx-visuals --composite --depth=24
-MY_INSTALL x11/arandr
-
 # login
 #MY_INSTALL x11/xdm
 #sed -i'-dist' '/^ttyv8/s/off/on /' /etc/ttys
@@ -79,44 +75,10 @@ MY_INSTALL x11-clocks/xclock
 
 # screen locking
 
-smartmontools() {
-	# smartmontools
-	MY_INSTALL sysutils/smartmontools
-	cp -i /usr/local/etc/smartd.conf.sample /usr/local/etc/smartd.conf
-	sysrc smartd_enable="YES"
-	service smartd start
-}
-
-microcode() {
-	# track CPU microcode updates
-	MY_INSTALL sysutils/devcpu-data
-	sysrc microcode_update_enable="YES"
-	# may be redundant since enabling seems to run
-	service microcode_update start
-}
-
-smartmontools()
-microcode()
-
-# sensors
-sysrc kld_list+="coretemp"
-#sysrc kld_list+="amdtemp"
-
 # security
 sysrc syslogd_flags="-ss"
 sysrc sshd_enable="NO"
 service sshd stop
-
-firewall() {
-	sysrc firewall_type="workstation"
-	sysrc firewall_quiet="YES"
-	#sysrc firewall_myservices="ssh"
-	#sysrc firewall_allowservices="any"
-	sysrc firewall_logdeny="YES"
-	sysrc ipfw_enable="YES"
-	service ipfw start
-}
-firewall()
 
 # fonts
 install_fonts() {
@@ -137,17 +99,6 @@ install_fonts()
 # disable moused
 #sysrc moused_enable="NO"
 
-ntp() {
-	# ntp
-	sysrc ntpd_enable="YES"
-	sysrc ntpd_sync_on_start="YES"
-	service ntpd onefetch
-	service ntpd start
-}
-ntp()
-
-MY_INSTALL shells/bash
-chsh -s /usr/local/bin/bash andrew
 #MY_INSTALL shells/ksh93
 #[TODO] disable crash dumps
 #sysrc dumpdev="NO"
@@ -164,9 +115,6 @@ sysrc clear_tmp_enable="YES"
 #[TODO] ensure Qt has enough shared memory to avoid glitches
 #append_if_absent /boot/loader.conf 'kern.ipc.shmseg=1024'
 #append_if_absent /boot/loader.conf 'kern.ipc.shmmni=1024'
-
-# disks
-sysrc fsck_y_enable="YES"
 
 ## samba
 #MY_INSTALL net/samba46
