@@ -2,6 +2,10 @@ echo /dev/ada0p1     /usr/home       ufs     rw      1       1 >> /etc/fstab
 
 # ideally copy /etc/make.conf into place before compiling
 
+install() {
+        /usr/local/sbin/portmaster --no-confirm -B -G -D "$@"
+}
+
 sysrc clear_tmp_enable="YES"
 sysrc syslogd_flags="-ss"
 sysrc sendmail_enable="NONE"
@@ -17,27 +21,26 @@ sysrc dumpdev="NO"
 portsnap fetch extract
 freebsd-update fetch install
 
-cd /usr/ports/ports-mgmt/portmaster
-make install clean BATCH=yes
+/usr/bin/make -C /usr/ports/ports-mgmt/portmaster install clean BATCH=yes
 
-portmaster -G -d --no-confirm security/ca_root_nss
+install security/ca_root_nss
 service ntpd onefetch
 
-portmaster -G -d --no-confirm x11/xorg
+install x11/xorg
 
-portmaster -G -d --no-confirm x11/nvidia-driver
+install x11/nvidia-driver
 sysrc kld_list+="nvidia-modeset"
 kldload nvidia-modeset
 
-portmaster -G -d --no-confirm devel/dbus
+install devel/dbus
 sysrc dbus_enable="YES"
 
 sysrc devd_enable=YES
 
-portmaster -G -d --no-confirm x11-wm/fvwm2
-portmaster -G -d --no-confirm x11-wm/compton
+install x11-wm/fvwm2
+install x11-wm/compton
 
-portmaster -G -d --no-confirm shells/bash
+install shells/bash
 chsh -s /usr/local/bin/bash andrew
 
 #nvidia-xconfig --add-argb-glx-visuals --composite --depth=24
@@ -54,8 +57,8 @@ Section "Device"
 EndSection
 EOF
 
-portmaster -G -d --no-confirm x11/rofi
-portmaster -G -d --no-confirm devel/git
-portmaster -G -d --no-confirm ftp/curl
-portmaster -G -d --no-confirm x11/xlockmore
-portmaster -G -d --no-confirm x11/xautolock
+install x11/rofi
+install devel/git
+install ftp/curl
+install x11/xlockmore
+install x11/xautolock
