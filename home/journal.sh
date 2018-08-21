@@ -70,26 +70,82 @@ install x11-wm/compton
 install shells/bash
 chsh -s /usr/local/bin/bash andrew
 
-#nvidia-xconfig --add-argb-glx-visuals --composite --depth=24
-cat <<EOF > /usr/local/etc/X11/xorg.conf.d/driver-nvidia.conf
-Section "Device"
-    Identifier     "Card0"
-    Driver         "nvidia"
-    VendorName     "NVIDIA Corporation"
-#BusID "PCI:1:0:0"
-    #Option         "AccelMethod" "none"
-    #Option         "TripleBuffer" "True"
-    #Option         "MetaModes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
-    ##Option         "MetaModes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-EndSection
-EOF
+##nvidia-xconfig --add-argb-glx-visuals --composite --depth=24
+#cat <<EOF > /usr/local/etc/X11/xorg.conf.d/driver-nvidia.conf
+#Section "Device"
+#    Identifier     "Card0"
+#    Driver         "nvidia"
+#    VendorName     "NVIDIA Corporation"
+##BusID "PCI:1:0:0"
+#    #Option         "AccelMethod" "none"
+#    #Option         "TripleBuffer" "True"
+#    #Option         "MetaModes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+#    ##Option         "MetaModes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+#EndSection
+#EOF
 
 install x11/rofi
-install devel/git
-install ftp/curl
 install x11/xlockmore
 install x11/xautolock
 
 
 # utils
+install ftp/curl
+
+# to install
 install x11/arandr
+install archivers/unzip
+install archivers/zip
+install devel/awscli
+install ftp/wget
+#install graphics/feh
+install math/calc
+install net-mgmt/whatmask
+install net/rclone
+install net/rsync
+install security/nmap
+install sysutils/cmdwatch
+install sysutils/pwgen
+install textproc/dict
+install textproc/jq
+install textproc/the_silver_searcher
+
+install security/keepassx2
+install x11/rxvt-unicode
+install x11/urxvt-perls
+install graphics/xpdf
+#install x11/xsel
+
+install editors/libreoffice
+install editors/texmaker
+install graphics/gimp
+install print/texlive-full
+install textproc/hs-pandoc
+install www/firefox
+install www/chromium
+
+install devel/git
+install devel/hs-cabal-install
+# install devel/stack
+install editors/vim
+install editors/emacs
+install lang/ghc
+install lang/go
+install lang/python3
+install lang/racket-minimal
+install misc/sloccount
+
+install emulators/dosbox
+install emulators/i386-wine-devel
+install emulators/wine-gecko-devel
+install emulators/wine-mono-devel
+/bin/sh /usr/local/share/wine/patch-nvidia.sh
+install emulators/winetricks
+
+install games/alephone
+install games/alephone-data
+install games/alephone-scenarios
+install games/angband
+install games/scummvm
+install games/scummvm-tools
+

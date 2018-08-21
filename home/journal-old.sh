@@ -127,34 +127,6 @@ sysrc autofs_enable="YES"
 ln -s /net/sulik/volume1 /media/sulik
 
 
-install_cli_misc() {
-	MY_INSTALL archivers/unzip
-	MY_INSTALL archivers/zip
-	MY_INSTALL devel/awscli
-	MY_INSTALL ftp/curl
-	MY_INSTALL ftp/wget
-	MY_INSTALL graphics/feh
-	MY_INSTALL math/calc
-	MY_INSTALL net-mgmt/whatmask
-	MY_INSTALL net/rclone
-	MY_INSTALL net/rsync
-	MY_INSTALL security/nmap
-	MY_INSTALL sysutils/pwgen
-	MY_INSTALL textproc/dict
-	MY_INSTALL textproc/jq
-	MY_INSTALL textproc/the_silver_searcher
-}
-install_cli_misc()
-
-install_gui_misc() {
-	MY_INSTALL security/keepassx2
-	MY_INSTALL x11/rxvt-unicode
-	MY_INSTALL x11/urxvt-perls
-	MY_INSTALL graphics/xpdf
-	MY_INSTALL x11/xsel
-}
-install_gui_misc()
-
 # misc utils
 #MY_INSTALL x11/xclip
 #MY_INSTALL security/keychain
@@ -169,15 +141,6 @@ MY_INSTALL sysutils/lsof
 # // add to group if necessary
 
 # productivity
-MY_INSTALL editors/libreoffice
-MY_INSTALL editors/texmaker
-MY_INSTALL graphics/gimp
-MY_INSTALL print/texlive-full
-MY_INSTALL textproc/hs-pandoc
-MY_INSTALL www/firefox
-# [TODO] MY_INSTALL www/chromium
-# enable shared memory for chromium
-# [TODO] sysctl kern.ipc.shm_allow_removed=1
 MY_INSTALL multimedia/mpv
 MY_INSTALL multimedia/vlc
 MY_INSTALL audio/clementine-player
@@ -194,19 +157,6 @@ MY_INSTALL graphics/geeqie
 #[TODO]${WHICH_MAKE} -C /usr/ports/x11-fonts/webfonts install clean BATCH=YES
 
 # coding
-install_coding() {
-	MY_INSTALL devel/git
-	MY_INSTALL devel/hs-cabal-install
-	# MY_INSTALL devel/stack
-	MY_INSTALL editors/vim
-	MY_INSTALL lang/ghc
-	MY_INSTALL lang/go
-	MY_INSTALL lang/python3
-	MY_INSTALL lang/racket-minimal
-	MY_INSTALL misc/sloccount
-}
-install_coding()
-MY_INSTALL editors/emacs
 #[TODO] MY_INSTALL devel/diffuse
 #[TODO]MY_INSTALL www/httpie
 #[TODO]MY_INSTALL www/lynx
@@ -223,23 +173,9 @@ MY_INSTALL security/openssh-askpass
 #[TODO] MY_INSTALL deskutils/gourmet
 
 # gaming emulators
-pkg install -y emulators/dosbox
-pkg install -y emulators/i386-wine-devel
-pkg install -y emulators/wine-gecko-devel
-pkg install -y emulators/wine-mono-devel
-/bin/sh /usr/local/share/wine/patch-nvidia.sh
-pkg install -y emulators/winetricks
 #winetricks install gdiplus
 #winetricks install dotnet40
 #MY_INSTALL emulators/playonbsd
-
-# install games
-pkg install -y games/alephone
-pkg install -y games/alephone-data
-pkg install -y games/alephone-scenarios
-pkg install -y games/angband
-pkg install -y games/scummvm
-pkg install -y games/scummvm-tools
 
 # TODO: TEXT ADVENTURES
 #[TODO]MY_INSTALL games/zangband
