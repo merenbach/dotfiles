@@ -1,5 +1,6 @@
 #! /bin/sh -x
 
+
 MY_USER=andrew
 
 pw group mod wheel -m "${MY_USER}"
@@ -30,7 +31,7 @@ WHICH_MAKE=/usr/bin/make
 /usr/bin/make -C /usr/ports/ports-mgmt/portmaster install clean BATCH=yes
 
 pkg bootstrap
-MY_INSTALL security/ca_root_nss
+
 # since pkgs are quarterly, and svn defaults to HEAD, we can also choose a different branch if we prefer
 #portsnap fetch update || portsnap extract && ${WHICH_MAKE} -C /usr/ports fetchindex
 
@@ -51,13 +52,7 @@ sysrc linux_enable="YES"
 kldload linux
 
 # video and desktop
-MY_INSTALL x11/xorg
-MY_INSTALL x11/nvidia-driver x11/nvidia-settings x11/nvidia-xconfig
-sysrc kld_list+="nvidia nvidia-modeset"
-kldload nvidia
-kldload nvidia-modeset
 nvidia-xconfig --add-argb-glx-visuals --composite --depth=24
-MY_INSTALL x11-wm/compton
 MY_INSTALL x11/arandr
 
 # login
@@ -77,16 +72,12 @@ sysrc dbus_enable="YES"
 service dbus start
 
 # desktop environment
-MY_INSTALL x11/rofi
 MY_INSTALL x11-wm/bspwm
-#MY_INSTALL x11-wm/sxhkd
-#MY_INSTALL x11-wm/fvwm2
+MY_INSTALL x11/sxhkd
 MY_INSTALL x11/xload
 MY_INSTALL x11-clocks/xclock
 
 # screen locking
-MY_INSTALL x11/xautolock
-MY_INSTALL x11/xlockmore
 
 smartmontools() {
 	# smartmontools
