@@ -132,6 +132,7 @@ install editors/emacs
 install lang/ghc
 install lang/go
 install lang/python3
+install lang/rust
 install lang/racket-minimal
 install misc/sloccount
 
