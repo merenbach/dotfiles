@@ -12,8 +12,9 @@ bootstrap() {
 
 install() {
 	#/usr/local/sbin/portmaster --no-confirm --update-if-newer -B -G -D "$@"
-	#/usr/local/sbin/portmaster --no-confirm --packages-build --delete-build-only -B -G -D "$@"
-	/usr/local/sbin/portmaster --no-confirm --packages-build -B -G -D "$@"
+
+	# delete intermediate build dependencies installed as packages
+	/usr/local/sbin/portmaster --no-confirm --packages-build --delete-build-only -B -G -D "$@"
 }
 enablemodule() {
 	/usr/sbin/sysrc kld_list+="$1"
@@ -28,12 +29,10 @@ sysrc fsck_y_enable="YES"
 sysrc clear_tmp_enable="YES"
 sysrc syslogd_flags="-ss"
 sysrc sendmail_enable="NONE"
-
-# this might not be really necessary on a desktop
-sysrc powerd_enable="YES"
-
 sysrc dumpdev="NO"
 
+# this might not be really necessary on a desktop
+enableservice powerd
 
 install "security/ca_root_nss"
 
@@ -68,8 +67,7 @@ install "sysutils/devcpu-data"
 enableservice microcode_update
 
 #TODO: is this necessary?
-#sysrc devd_enable=YES
-#service devd start
+# enableservice devd
 
 install "x11-wm/fvwm2"
 install "x11-wm/compton"
