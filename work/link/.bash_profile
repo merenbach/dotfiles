@@ -5,3 +5,5 @@ export GOPATH=$HOME/go
 . ~/.bashrc
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
