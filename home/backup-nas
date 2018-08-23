@@ -1,8 +1,9 @@
 #! /bin/sh
 
 SOURCE="/home/"
-TARGET=andrew@sulik:backup
+TARGET=andrew@192.168.1.8:backup
 
 #eval rsync --backup --backup-dir=`date +%Y.%m.%d` -avz --no-links --exclude=.cache --exclude='*.pyc' --exclude='.local' --exclude='*.core' --exclude='.dbus' --exclude='.racket' "${SOURCE}" "${TARGET}"
 # exec rsync --backup --backup-dir=`date +%Y.%m.%d` --progress -avh --exclude-from="$HOME/src/dotfiles/home/backup.exclude" --exclude='.racket' "${SOURCE}" "${TARGET}" "$@"
-exec rsync --backup --backup-dir=../`date +%Y.%m.%d` --progress -avh --exclude-from="$HOME/src/dotfiles/home/backup.exclude" "${SOURCE}" "${TARGET}" "$@"
+
+exec rsync --backup --backup-dir=/volume1/homes/andrew/backup/`date +%Y.%m.%d` --progress -avh --exclude-from="$HOME/src/dotfiles/home/backup.exclude" "${SOURCE}" "${TARGET}" "$@"
