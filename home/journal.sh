@@ -5,6 +5,7 @@ bootstrap() {
     portsnap fetch extract
     freebsd-update fetch install
     /usr/bin/make -C /usr/ports/ports-mgmt/portmaster install clean BATCH=yes
+    echo hw.snd.default_unit=3 >> /etc/sysctl.conf
 }
 #bootstrap()
 
@@ -126,6 +127,7 @@ install "graphics/xpdf"
 install "editors/libreoffice"
 install "editors/texmaker"
 install "graphics/gimp"
+install "multimedia/vlc"
 install "print/texlive-full"
 install "textproc/hs-pandoc"
 install "www/firefox"
@@ -158,3 +160,6 @@ install "games/alephone-scenarios"
 install "games/angband"
 install "games/scummvm"
 install "games/scummvm-tools"
+install "games/sokoban"
+install "games/xmahjongg"
+install "games/xsokoban"
