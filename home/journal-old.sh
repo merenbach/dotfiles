@@ -1,13 +1,6 @@
 #! /bin/sh -x
 
 
-MY_USER=andrew
-
-pw group mod wheel -m "${MY_USER}"
-pw group mod operator -m "${MY_USER}"
-pw group mod video -m "${MY_USER}"
-
-
 install() {
 	# replace with manual compile later...
 	#pkg install -y "$@"
@@ -80,19 +73,6 @@ sysrc syslogd_flags="-ss"
 sysrc sshd_enable="NO"
 service sshd stop
 
-# fonts
-install_fonts() {
-	MY_INSTALL x11-fonts/dina
-	MY_INSTALL x11-fonts/droid-fonts-ttf
-	MY_INSTALL x11-fonts/freefont-ttf
-	MY_INSTALL x11-fonts/gnu-unifont
-	MY_INSTALL x11-fonts/terminus-font
-	MY_INSTALL x11-fonts/urwfonts
-	MY_INSTALL x11-fonts/webfonts
-	MY_INSTALL x11-fonts/xorg-fonts
-}
-install_fonts()
-
 # program launching
 #MY_INSTALL x11/xbindkeys
 
@@ -130,7 +110,6 @@ ln -s /net/sulik/volume1 /media/sulik
 # misc utils
 #MY_INSTALL x11/xclip
 #MY_INSTALL security/keychain
-MY_INSTALL sysutils/lsof
 #[TODO]MY_INSTALL sysutils/cmdwatch
 #MY_INSTALL net-p2p/rtorrent
 #[TODO] deskutils/zim

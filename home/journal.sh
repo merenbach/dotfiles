@@ -1,6 +1,12 @@
 #! /bin/sh
 
+MY_USER=andrew
+
 bootstrap() {
+    for GROUP in wheel operator video;
+    do
+	pw group mod "${GROUP}" -m "${MY_USER}"
+    done
     echo /dev/ada0p1     /usr/home       ufs     rw      1       1 >> /etc/fstab
     portsnap fetch extract
     freebsd-update fetch install
@@ -76,7 +82,7 @@ install "x11-wm/compton"
 install "shells/bash"
 install "shells/bash-completion"
 
-chsh -s /usr/local/bin/bash andrew
+chsh -s /usr/local/bin/bash "${MY_USER}"
 
 ##nvidia-xconfig --add-argb-glx-visuals --composite --depth=24
 #cat <<EOF > /usr/local/etc/X11/xorg.conf.d/driver-nvidia.conf
@@ -98,25 +104,25 @@ install "x11/xautolock"
 
 
 # utils
-install "ftp/curl"
-
-# to install
-install "x11/arandr"
 install "archivers/unzip"
 install "archivers/zip"
 install "devel/awscli"
+install "ftp/curl"
 install "ftp/wget"
-#install "graphics/feh"
+install "graphics/feh"
+install "graphics/geeqie"
 install "math/calc"
 install "net-mgmt/whatmask"
 install "net/rclone"
 install "net/rsync"
 install "security/nmap"
 install "sysutils/cmdwatch"
+install "sysutils/lsof"
 install "sysutils/pwgen"
 install "textproc/dict"
 install "textproc/jq"
 install "textproc/the_silver_searcher"
+install "x11/arandr"
 
 install "graphics/xpdf"
 install "security/keepassx2"
@@ -130,7 +136,11 @@ install "editors/texmaker"
 install "graphics/gimp"
 install "multimedia/audacious"
 install "multimedia/audacious-plugins"
-# install "multimedia/smplayer"
+install "multimedia/gstreamer-plugins-bad"
+install "multimedia/gstreamer-plugins-good"
+install "multimedia/gstreamer-plugins-ugly"
+install "multimedia/mpv"
+install "multimedia/smplayer"
 install "multimedia/vlc"
 install "print/texlive-full"
 install "textproc/hs-pandoc"
@@ -168,3 +178,12 @@ install "games/scummvm-tools"
 install "games/sokoban"
 install "games/xmahjongg"
 install "games/xsokoban"
+
+install "x11-fonts/dina"
+install "x11-fonts/droid-fonts-ttf"
+install "x11-fonts/freefont-ttf"
+install "x11-fonts/gnu-unifont"
+install "x11-fonts/terminus-font"
+install "x11-fonts/urwfonts"
+install "x11-fonts/webfonts"
+install "x11-fonts/xorg-fonts"
