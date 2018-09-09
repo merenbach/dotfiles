@@ -21,7 +21,7 @@ install() {
 	#/usr/local/sbin/portmaster --no-confirm --update-if-newer -B -G -D "$@"
 
 	# delete intermediate build dependencies installed as packages
-	/usr/local/sbin/portmaster --no-confirm --packages-build --delete-build-only -B -G -D "$@"
+	/usr/local/sbin/portmaster --no-confirm --packages-build --delete-build-only -B -G -D -H "$@"
 }
 enablemodule() {
 	/usr/sbin/sysrc kld_list+="$1"
