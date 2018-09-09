@@ -79,8 +79,7 @@ enableservice microcode_update
 install "x11-wm/fvwm2"
 install "x11-wm/compton"
 
-install "shells/bash"
-install "shells/bash-completion"
+install "shells/bash" "shells/bash-completion"
 
 chsh -s /usr/local/bin/bash "${MY_USER}"
 
@@ -105,85 +104,86 @@ install "x11/xautolock"
 
 # utils
 install "archivers/unzip"
-install "archivers/zip"
-install "devel/awscli"
-install "ftp/curl"
-install "ftp/wget"
-install "graphics/feh"
-install "graphics/geeqie"
-install "math/calc"
-install "net-mgmt/whatmask"
-install "net/rclone"
-install "net/rsync"
-install "security/nmap"
-install "sysutils/cmdwatch"
-install "sysutils/lsof"
-install "sysutils/pwgen"
-install "textproc/dict"
-install "textproc/jq"
-install "textproc/the_silver_searcher"
-install "x11/arandr"
+  "archivers/zip" \
+  "devel/awscli" \
+  "ftp/curl" \
+  "ftp/wget" \
+  "graphics/feh" \
+  "graphics/geeqie" \
+  "math/calc" \
+  "net-mgmt/whatmask" \
+  "net/rclone" \
+  "net/rsync" \
+  "security/nmap" \
+  "sysutils/cmdwatch" \
+  "sysutils/lsof" \
+  "sysutils/pwgen" \
+  "textproc/dict" \
+  "textproc/jq" \
+  "textproc/the_silver_searcher" \
+  "x11/arandr"
 
-install "graphics/xpdf"
-install "security/keepassx2"
-install "x11-fm/pcmanfm"
-install "x11/rxvt-unicode"
-install "x11/urxvt-perls"
-install "x11/xsel"
+install "graphics/xpdf" \
+  "security/keepassx2" \
+  "x11-fm/pcmanfm" \
+  "x11/rxvt-unicode" \
+  "x11/urxvt-perls" \
+  "x11/xsel"
 
-install "editors/libreoffice"
-install "editors/texmaker"
-install "graphics/gimp"
-install "multimedia/audacious"
-install "multimedia/audacious-plugins"
-install "multimedia/gstreamer-plugins-bad"
-install "multimedia/gstreamer-plugins-good"
-install "multimedia/gstreamer-plugins-ugly"
-install "multimedia/mpv"
-install "multimedia/smplayer"
-install "multimedia/vlc"
-install "print/texlive-full"
-install "textproc/hs-pandoc"
-install "www/firefox"
-install "www/chromium"
+install "editors/libreoffice" \
+  "editors/texmaker" \
+  "graphics/gimp" \
+  "multimedia/audacious" \
+  "multimedia/audacious-plugins" \
+  "multimedia/gstreamer-plugins-bad" \
+  "multimedia/gstreamer-plugins-good" \
+  "multimedia/gstreamer-plugins-ugly" \
+  "multimedia/mpv" \
+  "multimedia/smplayer" \
+  "multimedia/vlc" \
+  "print/texlive-full" \
+  "textproc/hs-pandoc" \
+  "www/firefox" \
+  "www/chromium"
 
-install "devel/git"
-install "editors/vim"
-install "editors/emacs"
-install "lang/gcc7"
-install "lang/ghc"
-install "lang/go"
-install "lang/python3"
-install "lang/rust"
-install "lang/racket-minimal"
-install "misc/sloccount"
+install "devel/git" \
+  "editors/vim" \
+  "editors/emacs" \
+  "lang/gcc7" \
+  "lang/ghc" \
+  "lang/go" \
+  "lang/python3" \
+  "lang/rust" \
+  "lang/racket-minimal" \
+  "misc/sloccount"
 
-install "devel/hs-cabal-install"
+# install "devel/hs-cabal-install"
 # install "devel/stack"
 
-install "emulators/dosbox"
-install "emulators/i386-wine-devel"
-install "emulators/wine-gecko-devel"
-install "emulators/wine-mono-devel"
+install "emulators/i386-wine-devel" \
+  "emulators/wine-gecko-devel" \
+  "emulators/wine-mono-devel" \
+  "emulators/winetricks"
 /bin/sh /usr/local/share/wine/patch-nvidia.sh
-install "emulators/winetricks"
 
-install "games/alephone"
-install "games/alephone-data"
-install "games/alephone-scenarios"
-install "games/angband"
-install "games/lbreakout2"
-install "games/scummvm"
-install "games/scummvm-tools"
-install "games/sokoban"
-install "games/xmahjongg"
-install "games/xsokoban"
+install "emulators/dosbox"
 
-install "x11-fonts/dina"
-install "x11-fonts/droid-fonts-ttf"
-install "x11-fonts/freefont-ttf"
-install "x11-fonts/gnu-unifont"
-install "x11-fonts/terminus-font"
-install "x11-fonts/urwfonts"
-install "x11-fonts/webfonts"
-install "x11-fonts/xorg-fonts"
+install "games/alephone" \
+  "games/alephone-data" \
+  "games/alephone-scenarios" \
+  "games/angband" \
+  "games/lbreakout2" \
+  "games/scummvm" \
+  "games/scummvm-tools" \
+  "games/sokoban" \
+  "games/xmahjongg" \
+  "games/xsokoban"
+
+install "x11-fonts/dina" \
+  "x11-fonts/droid-fonts-ttf" \
+  "x11-fonts/freefont-ttf" \
+  "x11-fonts/gnu-unifont" \
+  "x11-fonts/terminus-font" \
+  "x11-fonts/urwfonts" \
+  "x11-fonts/webfonts" \
+  "x11-fonts/xorg-fonts"
