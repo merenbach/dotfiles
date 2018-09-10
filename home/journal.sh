@@ -52,7 +52,7 @@ enablemodule coretemp
 #enablemodule amdtemp
 
 install "security/ca_root_nss"
-install "security/libressl"
+# install "security/libressl"
 
 # TODO: why do we do this again?
 sysrc ntpd_sync_on_start="YES"
