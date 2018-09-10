@@ -97,6 +97,7 @@ install \
   "devel/awscli" \
   "devel/git" \
   "devel/hs-cabal-install" \
+  "devel/patch" \
   "editors/emacs" \
   "editors/libreoffice" \
   "editors/texmaker" \
