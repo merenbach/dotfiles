@@ -144,8 +144,8 @@ install \
   "net/rsync" \
   "print/texlive-full" \
   "security/keepassx2" \
+  "security/libressl" \
   "security/nmap" \
-  "security/openssl" \
   "sysutils/cmdwatch" \
   "sysutils/lsof" \
   "sysutils/pwgen" \
