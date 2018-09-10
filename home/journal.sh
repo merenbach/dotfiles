@@ -52,6 +52,7 @@ enablemodule coretemp
 #enablemodule amdtemp
 
 install "security/ca_root_nss"
+install "security/libressl"
 
 # TODO: why do we do this again?
 sysrc ntpd_sync_on_start="YES"
@@ -144,7 +145,6 @@ install \
   "net/rsync" \
   "print/texlive-full" \
   "security/keepassx2" \
-  "security/libressl" \
   "security/nmap" \
   "sysutils/cmdwatch" \
   "sysutils/lsof" \
