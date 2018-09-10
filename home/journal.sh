@@ -145,6 +145,7 @@ install \
   "print/texlive-full" \
   "security/keepassx2" \
   "security/nmap" \
+  "security/openssl" \
   "sysutils/cmdwatch" \
   "sysutils/lsof" \
   "sysutils/pwgen" \
