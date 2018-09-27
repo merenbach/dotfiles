@@ -152,7 +152,7 @@ install \
   "textproc/dict" \
   "textproc/hs-pandoc" \
   "textproc/jq" \
-  "textproc/the_silver_searcher" \
+  "textproc/ripgrep" \
   "www/chromium" \
   "www/firefox" \
   "x11-fm/pcmanfm" \
