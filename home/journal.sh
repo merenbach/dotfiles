@@ -131,6 +131,7 @@ install \
   "lang/racket-minimal" \
   "lang/rust" \
   "math/calc" \
+  "misc/lifelines" \
   "misc/sloccount" \
   "multimedia/audacious" \
   "multimedia/audacious-plugins" \
@@ -144,6 +145,7 @@ install \
   "net/rclone" \
   "net/rsync" \
   "print/texlive-full" \
+  "science/gramps" \
   "security/keepassx2" \
   "security/nmap" \
   "sysutils/cmdwatch" \
