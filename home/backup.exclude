@@ -12,6 +12,6 @@
 .nv/**
 .ssh/**
 .wine/**
-/andrew/Downloads/**
-/andrew/games/wine/**
-/andrew/go/**
+/Downloads/**
+/games/wine/**
+/go/**
