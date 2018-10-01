@@ -34,7 +34,8 @@
 ; (use-package evil
 ;   :ensure t
 ;   :init
-;   (setq evil-want-integration nil)
+;   (setq evil-want-integration t)
+;   (setq evil-want-keybinding nil)
 ;   :config
 ;   (evil-mode 1))
 
@@ -63,7 +64,7 @@
   ; (global-set-key (kbd "C-c a c") 'avy-goto-char)
   ; (global-set-key (kbd "C-'") 'avy-goto-char-2)
   (global-set-key (kbd "C-c a") 'avy-goto-char-timer)
-  ; (global-set-key (kbd "M-g f") 'avy-goto-line)
+  (global-set-key (kbd "M-g f") 'avy-goto-line)
   ; (global-set-key (kbd "M-g w") 'avy-goto-word-1)
   ; (global-set-key (kbd "M-g e") 'avy-goto-word-0)
   (global-set-key (kbd "C-c C-j") 'avy-resume))
@@ -71,7 +72,8 @@
 (use-package flycheck
   :ensure t
   :config
-  (global-flycheck-mode)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (setq flycheck-check-syntax-automatically nil)
   (setq flycheck-highlighting-mode 'lines))
 
 (with-eval-after-load 'rust-mode
@@ -177,7 +179,7 @@
 ;(require 'linum-off)
 
 ;(require 'nlinum-relative)
-;(nlinum-relative-setup-evil)
+; (nlinum-relative-setup-evil)
 ;(add-hook 'prog-mode-hook 'nlinum-relative-mode)
 ;(setq nlinum-relative-redisplay-delay 0)
 
@@ -199,7 +201,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rg flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck magit ag counsel-projectile))))
+    (graphql rg flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
