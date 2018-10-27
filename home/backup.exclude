@@ -13,6 +13,7 @@
 .ssh/**
 .wine/**
 /Downloads/**
+/VirtualBox VMs/**
 /games/wine/**
 /go/**
 @eaDir/**
