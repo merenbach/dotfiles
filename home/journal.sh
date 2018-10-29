@@ -32,6 +32,7 @@ enableservice() {
 	/usr/sbin/service "$1" start
 }
 
+sysrc firewall_enable="YES"
 sysrc fsck_y_enable="YES"
 sysrc clear_tmp_enable="YES"
 sysrc syslogd_flags="-ss"
@@ -100,30 +101,13 @@ install \
   "devel/hs-cabal-install" \
   "devel/patch" \
   "editors/emacs" \
-  "editors/libreoffice" \
   "editors/texmaker" \
   "editors/vim" \
-  "emulators/dosbox" \
-  "emulators/i386-wine-devel" \
-  "emulators/wine-gecko-devel" \
-  "emulators/wine-mono-devel" \
-  "emulators/winetricks" \
   "ftp/curl" \
   "ftp/wget" \
-  "games/alephone" \
-  "games/alephone-data" \
-  "games/alephone-scenarios" \
   "games/angband" \
-  "games/lbreakout2" \
-  "games/scummvm" \
-  "games/scummvm-tools" \
   "games/sokoban" \
-  "games/xmahjongg" \
-  "games/xsokoban" \
   "graphics/feh" \
-  "graphics/geeqie" \
-  "graphics/gimp" \
-  "graphics/xpdf" \
   "lang/gcc7" \
   "lang/ghc" \
   "lang/go" \
@@ -133,20 +117,13 @@ install \
   "math/calc" \
   "misc/lifelines" \
   "misc/sloccount" \
-  "multimedia/audacious" \
-  "multimedia/audacious-plugins" \
   "multimedia/gstreamer-plugins-bad" \
   "multimedia/gstreamer-plugins-good" \
   "multimedia/gstreamer-plugins-ugly" \
-  "multimedia/mpv" \
-  "multimedia/smplayer" \
-  "multimedia/vlc" \
   "net-mgmt/whatmask" \
   "net/rclone" \
   "net/rsync" \
   "print/texlive-full" \
-  "science/gramps" \
-  "security/keepassx2" \
   "security/nmap" \
   "sysutils/cmdwatch" \
   "sysutils/lsof" \
@@ -155,9 +132,6 @@ install \
   "textproc/hs-pandoc" \
   "textproc/jq" \
   "textproc/ripgrep" \
-  "www/chromium" \
-  "www/firefox" \
-  "x11-fm/pcmanfm" \
   "x11-fonts/dina" \
   "x11-fonts/droid-fonts-ttf" \
   "x11-fonts/freefont-ttf" \
@@ -177,8 +151,39 @@ install \
   "x11/xorg" \
   "x11/xsel"
 
+## not currently used
+# install "devel/stack"
+
+# GUI apps, esp. with DE/WM reqs (GTK, Qt, etc.)
+install \
+  "editors/libreoffice" \
+  "emulators/dosbox" \
+  "emulators/i386-wine-devel" \
+  "emulators/wine-gecko-devel" \
+  "emulators/wine-mono-devel" \
+  "emulators/winetricks" \
+  "games/alephone" \
+  "games/alephone-data" \
+  "games/alephone-scenarios" \
+  "games/lbreakout2" \
+  "games/scummvm" \
+  "games/scummvm-tools" \
+  "games/xmahjongg" \
+  "games/xsokoban" \
+  "graphics/geeqie" \
+  "graphics/gimp" \
+  "graphics/xpdf" \
+  "multimedia/audacious" \
+  "multimedia/audacious-plugins" \
+  "multimedia/mpv" \
+  "multimedia/smplayer" \
+  "multimedia/vlc" \
+  "science/gramps" \
+  "security/keepassx2" \
+  "www/chromium" \
+  "www/firefox" \
+  "x11-fm/pcmanfm"
+
 # needed for i386-wine-devel on Nvidia cards
 /bin/sh /usr/local/share/wine/patch-nvidia.sh
 
-## not currently used
-# install "devel/stack"
