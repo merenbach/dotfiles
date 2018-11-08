@@ -19,9 +19,6 @@ sync_dotfiles() {
 	if [ -d "$SRC/$1/copy" ]; then
 		/bin/cp -R -P -v "$SRC/$1/copy/" "$HOME"
 	fi
-	if [ -d "$SRC/$1/rootcopy" ]; then
-		/usr/bin/su - root -c "/bin/cp -R -P -v '$SRC/$1/rootcopy/' /"
-	fi
 }
 
 # Link dotfiles

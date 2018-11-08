@@ -1,27 +1,23 @@
 # .bashrc
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
 
-PS1='[\u@\h \W]\$ '
+# User specific environment
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH
 
-[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
-        source /usr/local/share/bash-completion/bash_completion.sh
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
 
+# User specific aliases and functions
 
-# some useful aliases
-alias h='fc -l'
-alias j=jobs
-alias m=$PAGER
-alias ll='ls -laFo'
-alias l='ls -l'
-alias g='egrep -i'
- 
 # be paranoid
 alias cp='cp -ip'
 alias mv='mv -i'
 alias rm='rm -i'
-
 
 # search path for go
 GOPATH=$HOME/go
