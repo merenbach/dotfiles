@@ -11,3 +11,4 @@ sudo dnf install gstreamer-plugins-bad gstreamer-plugins-good gstreamer-plugins-
 gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-bad-nonfree gstreamer1-plugins-good gstreamer1-plugins-ugly
 sudo dnf install playonlinux
 sudo dnf install winetricks
+sudo dnf install keepassx
