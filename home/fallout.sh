@@ -16,15 +16,19 @@ MY_WINEROOT="${HOME}/games/wine"
 MY_WINEPREFIX="${MY_WINEROOT}/fallout2"
 MY_GAMEDIR="${MY_WINEPREFIX}/drive_c/GOG Games/Fallout 2"
 MY_ARCHIVE="${HOME}/games/gog-installed/fallout2_2.0.0.12.tgz"
-MY_SETUP="${HOME}/games/gog/fallout_2_classic/setup_fallout2_2.0.0.12.exe"
-MY_PATCH="${HOME}/games/patches/fallout2/F2_Restoration_Project_2.3.3.exe"
-# MY_PATCH="${HOME}/games/patches/fallout2/unofficialFO2patch.exe"
+
+run_wine() {
+	/usr/bin/env WINEARCH=win32 WINEPREFIX="${MY_WINEPREFIX}" wine "$@"
+}
+
+run_winetricks() {
+	/usr/bin/env WINEARCH=win32 WINEPREFIX="${MY_WINEPREFIX}" winetricks "$@"
+}
 
 # ensure wine root is present
 /bin/mkdir -p "${MY_WINEROOT}"
 
 # ensure wine prefix is present
-/usr/bin/env WINEPREFIX="${MY_WINEPREFIX}" wine wineboot
 
     #- name: ensure gdiplus directory is present
     #  file: path="{{ gdiplus_dir }}" state=directory
@@ -35,7 +39,7 @@ MY_PATCH="${HOME}/games/patches/fallout2/F2_Restoration_Project_2.3.3.exe"
     #  #command: /usr/bin/env WINEPREFIX="{{ wine_base }}" winetricks --force gdiplus creates="{{ wine_base }}/dosdevices/c:/windows/temp/_gdiplus"
 
 # WINEDLLOVERRIDES="ddraw.dll=n" wine FALLOUT2.EXE
-
+run_wine wineboot
 
 ## install from exe
 # /usr/bin/env WINEPREFIX="${MY_WINEPREFIX}" winetricks dotnet40
@@ -43,17 +47,18 @@ MY_PATCH="${HOME}/games/patches/fallout2/F2_Restoration_Project_2.3.3.exe"
 
 # This step could also just entail unzipping an archive
 # ensure game is installed
-/usr/bin/env WINEPREFIX="${MY_WINEPREFIX}" wine "${MY_SETUP}"
+run_wine "${HOME}/games/gog/fallout_2_classic/setup_fallout2_2.0.0.12.exe"
 
 # tar xf "${MY_ARCHIVE}" -C "${MY_WINEPREFIX}/drive_c"
 
 # ensure game patch is installed
-/usr/bin/env WINEPREFIX="${MY_WINEPREFIX}" wine "${MY_PATCH}"
+run_wine "${HOME}/games/patches/fallout2/F2_Restoration_Project_2.3.3.exe"
+#run_wine "${HOME}/games/patches/fallout2/unofficialFO2patch.exe"
       
 # ensure wine overrides ddraw.dll
 # this should come after installation
 # Don't specify .dll after ddraw!
-/usr/bin/env WINEPREFIX="${MY_WINEPREFIX}" winetricks ddraw=native
+#/usr/bin/env WINEPREFIX="${MY_WINEPREFIX}" winetricks ddraw=native
 
 # ensure game prototypes are read-only
 # chmod 0444 "${MY_GAMEDIR}/[dD]ata/[pP]roto/[iI]tems/*" "${MY_GAMEDIR}/[dD]ata/[pP]roto/[cC]ritters/*"
