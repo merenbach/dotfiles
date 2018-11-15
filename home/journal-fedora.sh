@@ -4,6 +4,15 @@ dnf update
 # /etc/fstab: => /dev/mapper/luks-7f9579cd-e497-4ac7-be6a-8782c657c30b /home                   xfs    defaults,x-systemd.device-timeout=0 1 2
 # /etc/crypttab: => luks-7f9579cd-e497-4ac7-be6a-8782c657c30b UUID=7f9579cd-e497-4ac7-be6a-8782c657c30b none discard
 
+# for Xorg with AMD:
+# sudo dnf install xorg-x11-drv-amdgpu
+# may also need:
+#cat /etc/X11/xorg.conf.d/20-amdgpu.conf
+#Section "Device"
+#    Identifier "AMD"
+#    Driver "amdgpu"
+#EndSection
+
 
 gnome-tweaks
 rclone
