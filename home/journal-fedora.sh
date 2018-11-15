@@ -1,9 +1,15 @@
+dnf update
+
+# if reinstalling OS, to mount /home...
+# /etc/fstab: => /dev/mapper/luks-7f9579cd-e497-4ac7-be6a-8782c657c30b /home                   xfs    defaults,x-systemd.device-timeout=0 1 2
+# /etc/crypttab: => luks-7f9579cd-e497-4ac7-be6a-8782c657c30b UUID=7f9579cd-e497-4ac7-be6a-8782c657c30b none discard
+
+
 gnome-tweaks
 rclone
 vim-enhanced
-chromium
-sudo dnf install chromium mozilla-ublock-origin
-sudo dnf install mozilla-https-everywhere mozilla-privacy-badger
+sudo dnf install chromium
+sudo dnf install mozilla-ublock-origin mozilla-https-everywhere mozilla-privacy-badger
 sudo dnf install wine.i686
 
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
