@@ -13,6 +13,8 @@ dnf update
 #    Driver "amdgpu"
 #EndSection
 
+# DISABLE CSMT IN WINECFG IN FEDORA
+
 
 gnome-tweaks
 rclone
