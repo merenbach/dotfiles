@@ -16,6 +16,7 @@ dnf update
 # DISABLE CSMT IN WINECFG IN FEDORA
 
 
+sudo dnf install microcode_ctl
 
 sudo dnf install awscli
 sudo dnf install calc
