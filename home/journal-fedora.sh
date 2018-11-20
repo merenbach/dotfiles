@@ -59,6 +59,10 @@ sudo dnf install gstreamer-plugins-bad gstreamer-plugins-good gstreamer-plugins-
 gstreamer1-libav gstreamer1-plugins-bad-free gstreamer1-plugins-bad-nonfree gstreamer1-plugins-good gstreamer1-plugins-ugly
 sudo dnf install playonlinux
 sudo dnf install gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-free-fluidsynth
+sudo dnf install ffmpeg-libs
+# use this to support H.264 video (e.g., YouTube) in Chromium
+sudo dnf install chromium-libs-media-freeworld
+
 
 
 # for Fallout2, we need: winetricks directx9
