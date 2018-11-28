@@ -14,7 +14,7 @@
 (setq inhibit-startup-screen t)
 
 ; remove toolbar
-(tool-bar-mode -1)
+;(tool-bar-mode -1)
 
 ; paren highlighting
 (show-paren-mode 1)
@@ -76,8 +76,8 @@
   (setq flycheck-check-syntax-automatically nil)
   (setq flycheck-highlighting-mode 'lines))
 
-(with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+; (with-eval-after-load 'rust-mode
+;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (use-package projectile
   :ensure t
@@ -135,6 +135,11 @@
   :config
   (setq rust-format-on-save t))
 
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
 ; autopair
 (electric-pair-mode 1)
 
@@ -189,7 +194,6 @@
 ;(setq company-idle-delay 1)
 ;(setq company-minimum-prefix-length 2)
 ;;(global-set-key "\t" 'company-complete-common)
-(add-hook 'after-init-hook 'global-company-mode)
 
 (with-eval-after-load 'org
                       (setq org-startup-indented 1))
@@ -201,7 +205,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (graphql rg flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck ag counsel-projectile))))
+    (powershell graphql rg flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
