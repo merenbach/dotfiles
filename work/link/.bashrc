@@ -1,21 +1,18 @@
-export NODE_ENV="development"
-export RUN_ENV="local"
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-export FQ_EMAIL="andrew.merenbach@floqast.com"
-# export RUN_RECS_NOTIFICATION_EMAIL="andrew.merenbach@floqast.com"
-# export CRON_UPDATE_TLC_EMAIL_NOTIFICATION="andrew.merenbach@floqast.com"
-export SERVER_EMAIL_SETUP="andrew.merenbach@floqast.com"
-export SERVER_EMAIL_NOTIFICATION_RUNRECS="andrew.merenbach@floqast.com"
-export SERVER_EMAIL_NOTIFICATION_CRON_UPDATETLC="andrew.merenbach@floqast.com"
+# User specific aliases and functions
 
-export BI_SQS_QUEUE_NAME=bi-development-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_REPORT_QUEUE_NAME=run-recs-report-andrewmer.fifo
-export API_AWS_SQS_READYFORREVIEWEMAIL_QUEUE_NAME=ready-for-review-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_TB_QUEUE_NAME=run-recs-sqs-tb-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_NETSUITE_QUEUE_NAME=run-recs-ytd-netsuite-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_INTACCT_QUEUE_NAME=run-recs-sqs-intacct-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_YTD_TB_QUEUE_NAME=run-recs-ytd-tb-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_YTD_NETSUITE_QUEUE_NAME=run-recs-ytd-netsuite-andrewmer.fifo
-export API_AWS_SQS_RUNRECS_YTD_INTACCT_QUEUE_NAME=run-recs-ytd-intacct-andrewmer.fifo
-export API_AWS_SQS_BI_QUEUE_NAME=bi-development-andrewmer.fifo
+# be paranoid
+alias cp='cp -ip'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# search path for go
+GOPATH=$HOME/go
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH
