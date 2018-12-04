@@ -4,19 +4,6 @@
 " - helptags?
 "mkdirp -p ~/.vim/pack/my-plugins/start
 "cd ~/.vim/pack/my-plugins/start
-"git clone https://github.com/alx741/vim-hindent.git
-"git clone https://github.com/easymotion/vim-easymotion.git
-"git clone https://github.com/fatih/vim-go.git
-"git clone https://github.com/mhinz/vim-grepper.git
-"git clone https://github.com/neovimhaskell/haskell-vim.git
-"git clone https://github.com/tpope/vim-commentary.git
-"git clone https://github.com/tpope/vim-dispatch.git
-"git clone https://github.com/tpope/vim-fugitive.git
-"git clone https://github.com/tpope/vim-repeat.git
-"git clone https://github.com/tpope/vim-sensible.git
-"git clone https://github.com/tpope/vim-sleuth.git
-"git clone https://github.com/tpope/vim-surround.git
-"git clone https://github.com/rust-lang/rust.vim ~/.vim/pack/plugins/start/rust.vim
 "cabal update; cabal install happy hindent
 "#then run :GoInstall in vim
 "ctags
@@ -35,6 +22,59 @@
 
 " Import defaults.vim
 runtime! defaults.vim
+
+function! PackInit() abort
+  packadd minpac
+  if !exists('*minpac#init')
+    " minpac is not available.
+    " install it.
+    silent !mkdir -p ~/.vim/pack/minpac/opt
+    silent !git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+    packadd minpac
+  
+  else
+    " minpac is available.
+    call minpac#init()
+  
+    " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
+  
+    " Additional plugins here.
+    call minpac#add('ctrlpvim/ctrlp.vim')
+    call minpac#add('easymotion/vim-easymotion')
+    call minpac#add('itchyny/lightline.vim')
+    call minpac#add('tpope/vim-commentary')
+    call minpac#add('tpope/vim-dispatch')
+    call minpac#add('tpope/vim-fugitive')
+    call minpac#add('tpope/vim-repeat')
+    call minpac#add('tpope/vim-surround')
+    " call minpac#add('mhinz/vim-grepper')
+    " call minpac#add('tpope/vim-eunuch')
+    " call minpac#add('tpope/vim-sensible')
+    " call minpac#add('tpope/vim-sleuth')
+
+    " Language support
+    call minpac#add('fatih/vim-go')
+    call minpac#add('rust-lang/rust.vim')
+    " call minpac#add('alx741/vim-hindent')
+    " call minpac#add('neovimhaskell/haskell-vim')
+  endif
+endfunction
+
+" Define user commands for updating/cleaning the plugins.
+" Each of them calls PackInit() to load minpac and register
+" the information of plugins, then performs the task.
+command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
+
+
+" " ensure that vimplug is installed
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
 
 let mapleader=","
 " used more for certain types of files
