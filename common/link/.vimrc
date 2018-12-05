@@ -43,6 +43,7 @@ function! PackInit() abort
     call minpac#add('ctrlpvim/ctrlp.vim')
     call minpac#add('easymotion/vim-easymotion')
     call minpac#add('itchyny/lightline.vim')
+    call minpac#add('lifepillar/vim-solarized8')
     call minpac#add('tpope/vim-commentary')
     call minpac#add('tpope/vim-dispatch')
     call minpac#add('tpope/vim-fugitive')
@@ -68,6 +69,11 @@ command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
 
+if has('gui_running')
+  set guifont=Monaco:h16
+  set background=dark
+  colorscheme solarized8
+endif
 
 " " ensure that vimplug is installed
 " if empty(glob('~/.vim/autoload/plug.vim'))
