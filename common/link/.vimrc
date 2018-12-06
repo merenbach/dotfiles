@@ -30,7 +30,7 @@ function! PackInit() abort
     " install it.
     silent !mkdir -p ~/.vim/pack/minpac/opt
     silent !git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
-    packadd minpac
+    call PackInit()
   
   else
     " minpac is available.
