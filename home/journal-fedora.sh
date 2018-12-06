@@ -63,6 +63,11 @@ sudo dnf install ffmpeg-libs
 # use this to support H.264 video (e.g., YouTube) in Chromium
 sudo dnf install chromium-libs-media-freeworld
 
+# VS Code
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+dnf check-update
+sudo dnf install code
 
 
 # for Fallout2, we need: winetricks directx9
