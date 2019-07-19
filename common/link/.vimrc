@@ -246,7 +246,7 @@ nnoremap <leader>co :copen<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>lo :lopen<CR>
 
-" vim-easymotion with Dvorak combas
+" vim-easymotion with Dvorak combos
 let g:EasyMotion_keys = "aoeidtn',.pyfgcrl;qjkxbmuhs"
 
 " vim-go
