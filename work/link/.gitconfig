@@ -6,7 +6,7 @@
 [core]
     quotepath = false
     autocrlf = input
-    editor = vim -f
+	editor = code --wait
     excludesfile = ~/.cvsignore
 [color]
     ui = auto
@@ -34,13 +34,17 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [log]
     decorate = full
+[merge]
+	tool = vscode
+	conflictStyle = diff3
 [mergetool]
 	prompt = false
-[merge]
-	tool = vimdiff
-	conflictstyle = diff3
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
 [diff]
-	tool = diffuse
-	conflictstyle = diff3
-[difftool "diffuse"]
-	prompt = false
+    tool = vscode
+	conflictStyle = diff3
+[difftool]
+    prompt = false
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
