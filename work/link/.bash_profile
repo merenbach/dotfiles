@@ -1,7 +1,9 @@
+alias mbrew="brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor"
+
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-export GOPATH=$HOME/go
+export GOPATH=`go env GOPATH`
 . ~/.bashrc
 
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -11,6 +13,8 @@ export PATH="$PATH:$HOME/bin"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
+
+export CXXFLAGS="${CXXFLAGS} -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libxml2"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"

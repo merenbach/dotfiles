@@ -16,3 +16,4 @@ fi
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
+. /usr/local/etc/profile.d/z.sh
