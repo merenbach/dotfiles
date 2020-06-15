@@ -13,7 +13,14 @@ if [ -f /etc/zshrc ]; then
 	. /etc/zshrc
 fi
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+#fpath=(/usr/local/share/zsh-completions $fpath)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
