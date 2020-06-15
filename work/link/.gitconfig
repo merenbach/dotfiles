@@ -4,47 +4,47 @@
 [push]
 	default = simple
 [core]
-    quotepath = false
-    autocrlf = input
+	quotepath = false
+	autocrlf = input
 	editor = code --wait
-    excludesfile = ~/.cvsignore
+	excludesfile = ~/.cvsignore
 [color]
-    ui = auto
+	ui = auto
 [color "branch"]
-    current = blue reverse
-    local = blue
-    remote = green
+	current = blue reverse
+	local = blue
+	remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 [color "status"]
-    added = blue
-    changed = green
-    untracked = cyan 
+	added = blue
+	changed = green
+	untracked = cyan 
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-    lo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset' --abbrev-commit --date=relative
-    addr = add -A
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	lo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset' --abbrev-commit --date=relative
+	addr = add -A
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [log]
-    decorate = full
+	decorate = full
 [merge]
 	tool = vscode
 	conflictStyle = diff3
 [mergetool]
 	prompt = false
 [mergetool "vscode"]
-    cmd = code --wait $MERGED
+	cmd = code --wait $MERGED
 [diff]
-    tool = vscode
+	tool = vscode
 	conflictStyle = diff3
 [difftool]
-    prompt = false
+	prompt = false
 [difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --wait --diff $LOCAL $REMOTE
