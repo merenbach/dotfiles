@@ -34,17 +34,3 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [log]
 	decorate = full
-[merge]
-	tool = vscode
-	conflictStyle = diff3
-[mergetool]
-	prompt = false
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
-[diff]
-	tool = vscode
-	conflictStyle = diff3
-[difftool]
-	prompt = false
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
