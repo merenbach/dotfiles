@@ -60,3 +60,8 @@
 (setq doom-modeline-enable-word-count nil)
 (setq overflow-newline-into-fringe nil)
 (setq mac-option-modifier 'meta)
+
+; https://godoc.org/golang.org/x/tools/cmd/goimports
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook 'lsp-deferred)
