@@ -2,10 +2,13 @@
 
 My home and work dotfiles.
 
-
 ## Setup
 
-Run `setup` to symlink/copy only universal (common) files, or `setup home`/`setup work` to copy both common and local files.
+For macOS, install Homebrew and then run the following:
+
+    brew install git emacs coreutils ripgrep fd
+
+Next run the `setup` script to symlink/copy only universal (common) files, or `setup home`/`setup work` to copy both common and local files.
 
 For GoLang defs in emacs:
 
