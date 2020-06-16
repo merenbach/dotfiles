@@ -6,13 +6,20 @@ My home and work dotfiles.
 
 For macOS, install Homebrew and then run the following:
 
-    brew install git emacs coreutils ripgrep fd font-config shellcheck markdown
+    brew install git emacs coreutils ripgrep fd
+    brew install font-config
+    brew install shellcheck markdown jq
 
 Next run the `setup` script to symlink/copy only universal (common) files, or `setup home`/`setup work` to copy both common and local files.
 
-For GoLang defs in emacs:
+Additional dependencies:
 
-    go get golang.org/x/tools/cmd/guru
+    go get -u golang.org/x/tools/cmd/guru
+    go get -u github.com/fatih/gomodifytags
+    go get -u github.com/cweill/gotests/...
+    go get -u github.com/motemen/gore/cmd/gore
+    go get -u github.com/mdempsky/gocode
+
 
 For formatting:
 
