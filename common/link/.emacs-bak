@@ -31,42 +31,48 @@
 ;(setq linum-format 'dynamic)
 
 
-; (use-package evil
-;   :ensure t
-;   :init
-;   (setq evil-want-integration t)
-;   (setq evil-want-keybinding nil)
-;   :config
-;   (evil-mode 1))
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
 
-; (use-package evil-commentary
-;   :after evil
-;   :ensure t
-;   :config
-;   (evil-commentary-mode))
-
-; (use-package evil-surround
-;   :after evil
-;   :ensure t
-;   :config
-;   (global-evil-surround-mode 1))
-
-; (use-package evil-collection
-;   :after evil
-;   :ensure t
-;   :config
-;   (evil-collection-init))
-
-(use-package avy
+(use-package evil-commentary
+  :after evil
   :ensure t
   :config
-  (avy-setup-default)
-  ; (global-set-key (kbd "C-c a c") 'avy-goto-char)
-  ; (global-set-key (kbd "C-'") 'avy-goto-char-2)
-  (global-set-key (kbd "M-g a") 'avy-goto-char-timer)
-  (global-set-key (kbd "M-g l") 'avy-goto-line)
-  (global-set-key (kbd "M-g w") 'avy-goto-word-0)
-  (global-set-key (kbd "C-c C-j") 'avy-resume))
+  (evil-commentary-mode))
+
+(use-package evil-surround
+  :after evil
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package evil-easymotion
+  :after evil
+  :ensure t
+  :config
+  (evilem-default-keybindings "SPC"))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+;; (use-package avy
+;;   :ensure t
+;;   :config
+;;   (avy-setup-default)
+;;   ; (global-set-key (kbd "C-c a c") 'avy-goto-char)
+;;   ; (global-set-key (kbd "C-'") 'avy-goto-char-2)
+;;   (global-set-key (kbd "M-g a") 'avy-goto-char-timer)
+;;   (global-set-key (kbd "M-g l") 'avy-goto-line)
+;;   (global-set-key (kbd "M-g w") 'avy-goto-word-0)
+;;   (global-set-key (kbd "C-c C-j") 'avy-resume))
 
 (use-package flycheck
   :ensure t
@@ -127,25 +133,42 @@
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
 
-; (evilem-default-keybindings "SPC")
+;; (use-package god-mode
+;;   :ensure t
+;;   :config
+;;   ;(setq god-exempt-major-modes nil)
+;;   ;(setq god-exempt-predicates nil)
+;;   ;; (defun my-god-mode-update-cursor ()
+;;   ;;   (setq cursor-type (if (or god-local-mode buffer-read-only)
+;;   ;;                         'box
+;;   ;;                       'bar)))
+;;   ;;(add-hook 'god-mode-enabled-hook #'my-god-mode-update-cursor)
+;;   ;;(add-hook 'god-mode-disabled-hook #'my-god-mode-update-cursor)
+;;   (define-key god-local-mode-map (kbd ".") #'repeat)
+;;   (global-set-key (kbd "<escape>") #'god-local-mode))
 
 (use-package rust-mode
   :ensure t
   :config
   (setq rust-format-on-save t))
 
+(use-package go-mode
+  :ensure t
+  :config
+  ; https://godoc.org/golang.org/x/tools/cmd/goimports
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+
 (use-package company
   :ensure t
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
+;;; Parentheses
+
 ; autopair
 (electric-pair-mode 1)
-
-; https://godoc.org/golang.org/x/tools/cmd/goimports
-(setq gofmt-command "goimports")
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
 
 ; https://emacs.stackexchange.com/questions/5981/how-to-make-electric-pair-mode-buffer-local/5990#5990
 ; https://emacs.stackexchange.com/questions/13603/auctex-disable-electric-pair-mode-in-minibuffer-during-macro-definition
@@ -161,24 +184,24 @@
 ;         (t . ivy--regex-plus)))
 
 ; https://www.emacswiki.org/emacs/WholeLineOrRegion
-(put 'kill-region 'interactive-form      
-     '(interactive
-        (if (use-region-p)
-          (list (region-beginning) (region-end))
-          (list (line-beginning-position) (line-beginning-position 2)))))
-(defun my-kill-ring-save (beg end flash)
-  (interactive (if (use-region-p)
-                 (list (region-beginning) (region-end) nil)
-                 (list (line-beginning-position)
-                       (line-beginning-position 2) 'flash)))
-  (kill-ring-save beg end)
-  (when flash
-    (save-excursion
-      (if (equal (current-column) 0)
-        (goto-char end)
-        (goto-char beg))
-      (sit-for blink-matching-delay))))
-(global-set-key [remap kill-ring-save] 'my-kill-ring-save)
+;; (put 'kill-region 'interactive-form      
+;;      '(interactive
+;;         (if (use-region-p)
+;;           (list (region-beginning) (region-end))
+;;           (list (line-beginning-position) (line-beginning-position 2)))))
+;; (defun my-kill-ring-save (beg end flash)
+;;   (interactive (if (use-region-p)
+;;                  (list (region-beginning) (region-end) nil)
+;;                  (list (line-beginning-position)
+;;                        (line-beginning-position 2) 'flash)))
+;;   (kill-ring-save beg end)
+;;   (when flash
+;;     (save-excursion
+;;       (if (equal (current-column) 0)
+;;         (goto-char end)
+;;         (goto-char beg))
+;;       (sit-for blink-matching-delay))))
+;; (global-set-key [remap kill-ring-save] 'my-kill-ring-save)
 
 ;(require 'linum-off)
 
@@ -187,8 +210,8 @@
 ;(add-hook 'prog-mode-hook 'nlinum-relative-mode)
 ;(setq nlinum-relative-redisplay-delay 0)
 
-(if (display-graphic-p)
-  (load-theme 'solarized-light t))
+;; (if (display-graphic-p)
+;;   (load-theme 'solarized-light t))
 
 ;(setq company-idle-delay 1)
 ;(setq company-minimum-prefix-length 2)
@@ -204,7 +227,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (powershell graphql rg flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck ag counsel-projectile))))
+    (evil-easymotion god-mode powershell graphql rg flycheck-rust scss-mode typescript-mode cargo rust-mode flx avy protobuf-mode go-guru go-mode company-anaconda company yaml-mode racket-mode json-mode flycheck ag counsel-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -230,4 +253,4 @@
 ;(put 'upcase-region 'disabled nil)
 ;(put 'downcase-region 'disabled nil)
 
-; (profiler-start 'cpu+mem)
+                                        ; (profiler-start 'cpu+mem)
