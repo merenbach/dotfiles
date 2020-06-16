@@ -24,6 +24,7 @@ fi
 
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH
 
 . /usr/local/etc/profile.d/z.sh
