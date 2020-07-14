@@ -9,3 +9,4 @@
 * Play stupid games, win stupid prizes.
 * You can't fix stupid.
 * Not my circus, not my monkeys.
+* Don't deploy with your fingers crossed.
