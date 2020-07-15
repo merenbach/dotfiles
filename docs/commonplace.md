@@ -10,3 +10,5 @@
 * You can't fix stupid.
 * Not my circus, not my monkeys.
 * Don't deploy with your fingers crossed.
+* Argue with idiots, and you become an idiot.
+* In a pissing contest, everyone ends loses or ends up covered in piss.
