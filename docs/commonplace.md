@@ -12,7 +12,7 @@
 * When it comes to crazy, don't mess with it.
 * Not my circus, not my monkeys.
 * Don't deploy with your fingers crossed.
-* Argue with idiots, and you become an idiot.
+* Argue with idiots, and you become an idiot. - Paul Graham, [What You Can't Say](http://paulgraham.com/say.html)
 * In a pissing contest, everyone loses or ends up covered in piss.
 * _No_ is a complete sentence.
 * When the emperor looks naked, the emperor _is_ naked.
