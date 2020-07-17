@@ -25,3 +25,5 @@
 * Wherever you go, there you are.
 * I won't go out of my way to rat you out, but I won't lie for you, either.
 * Don't be the person to make everyone else look bad.
+* "The best way to get the right answer on the Internet is not to ask a question; it's to post the wrong answer" - Ward Cunningham ("Cunningham's Law")
+* Prêcher le faux pour savoir le vrai ("preach the falsehood to know the truth").
