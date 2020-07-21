@@ -42,4 +42,5 @@
 * You don't fix people, you fix incentives. This requires regulation to prohibit bad behavior and reward for good behaviors.
 * Apologize first to individuals, then to groups of which they are a part.
 * If it's not automated, it's broken.
-* "If you are no longer interested in a project you started, maybe you already got what you came for." – Refuse to Choose
+* If you are no longer interested in a project you started, maybe you already got what you came for. – Refuse to Choose
+* Nothing wrong with being petty as long as you’re in the right.
