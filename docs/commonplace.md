@@ -27,3 +27,4 @@
 * Don't be the person to make everyone else look bad.
 * "The best way to get the right answer on the Internet is not to ask a question; it's to post the wrong answer" - Ward Cunningham ("Cunningham's Law")
 * Prêcher le faux pour savoir le vrai ("preach the falsehood to know the truth").
+* The last thing you want to do is the first thing you should do. - Attributed to Tim Ferris
