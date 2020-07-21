@@ -28,3 +28,8 @@
 * "The best way to get the right answer on the Internet is not to ask a question; it's to post the wrong answer" - Ward Cunningham ("Cunningham's Law")
 * Prêcher le faux pour savoir le vrai ("preach the falsehood to know the truth").
 * The last thing you want to do is the first thing you should do. - Attributed to Tim Ferris
+* You catch more flies with honey than with vinegar. (Except for balsamic vinegar, which works great for catching flies.)
+* Don't ever acquire anything you would mind losing in a fire or natural disaster.
+* It's nice to be nice. - Dad
+* Is that a eulogy in your pocket or are you just happy to see me go?
+* Sometimes, only one person is missing, and the whole world seems depopulated. - Alphonse de Lamartine, "L'Isolement", _Méditations Poétiques_ (1820)
