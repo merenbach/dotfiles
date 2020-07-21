@@ -33,3 +33,4 @@
 * It's nice to be nice. - Dad
 * Is that a eulogy in your pocket or are you just happy to see me go?
 * Sometimes, only one person is missing, and the whole world seems depopulated. - [Alphonse de Lamartine](https://en.wikiquote.org/wiki/Alphonse_de_Lamartine), "L'Isolement", _Méditations Poétiques_ (1820)
+* "The rhetorical style of any Twitter account that continues to gain followers converges on that of a fortune cookie." - [Eugene Wei](https://twitter.com/eugenewei/status/998714814749802496?lang=en)
