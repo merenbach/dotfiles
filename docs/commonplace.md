@@ -32,4 +32,4 @@
 * Don't ever acquire anything you would mind losing in a fire or natural disaster.
 * It's nice to be nice. - Dad
 * Is that a eulogy in your pocket or are you just happy to see me go?
-* Sometimes, only one person is missing, and the whole world seems depopulated. - Alphonse de Lamartine, "L'Isolement", _Méditations Poétiques_ (1820)
+* Sometimes, only one person is missing, and the whole world seems depopulated. - [Alphonse de Lamartine](https://en.wikiquote.org/wiki/Alphonse_de_Lamartine), "L'Isolement", _Méditations Poétiques_ (1820)
