@@ -6,9 +6,11 @@
 * If you don't play, you can't lose.
 * Err on the side ofy whimsy.
 * Let others dig their own graves.
-* Play stupid games, win stupid prizes.
-* You can't fix stupid.
-* Stupid is as stupid does.
+* Stupidity
+  * Play stupid games, win stupid prizes.
+  * You can't fix stupid.
+  * Ask stupid questions, get stupid answers.
+  * Stupid is as stupid does.
 * When it comes to crazy, don't mess with it.
 * Not my circus, not my monkeys.
 * Don't deploy with your fingers crossed.
@@ -34,3 +36,10 @@
 * Is that a eulogy in your pocket or are you just happy to see me go?
 * Sometimes, only one person is missing, and the whole world seems depopulated. - [Alphonse de Lamartine](https://en.wikiquote.org/wiki/Alphonse_de_Lamartine), "L'Isolement", _Méditations Poétiques_ (1820)
 * "The rhetorical style of any Twitter account that continues to gain followers converges on that of a fortune cookie." - [Eugene Wei](https://twitter.com/eugenewei/status/998714814749802496?lang=en)
+* Never mistake activity with achievement. - Attributed to John Wooden
+* When someone shows you who they are, believe them the first time.
+* The broader you cast your net, the more holes it's going to have.
+* You don't fix people, you fix incentives. This requires regulation to prohibit bad behavior and reward for good behaviors.
+* Apologize first to individuals, then to groups of which they are a part.
+* If it's not automated, it's broken.
+* "If you are no longer interested in a project you started, maybe you already got what you came for." – Refuse to Choose
