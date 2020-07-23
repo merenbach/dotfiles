@@ -45,3 +45,4 @@
 * If you are no longer interested in a project you started, maybe you already got what you came for. – Refuse to Choose
 * Nothing wrong with being petty as long as you're in the right.
 * "It was all quite natural, human beings are created in order to torment one another." ― Fyodor Dostoyevsky, _The Idiot_
+* Sometimes a very harsh and painful lesson is required.
