@@ -46,3 +46,4 @@
 * Nothing wrong with being petty as long as you're in the right.
 * "It was all quite natural, human beings are created in order to torment one another." ― Fyodor Dostoyevsky, _The Idiot_
 * Sometimes a very harsh and painful lesson is required.
+* I would rather adjust my life to your absence than adjust my boundaries to accommodate your disrespect.
