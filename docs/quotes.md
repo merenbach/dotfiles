@@ -1,4 +1,6 @@
-# Commonplace book
+# Quotes
+
+A commonplace book
 
 * Do not taint your victory.
 * In the age of information, ignorance is a choice. - Donny Miller (attributed)
