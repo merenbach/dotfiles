@@ -48,3 +48,5 @@ A commonplace book
 * Nothing wrong with being petty as long as you're in the right.
 * Sometimes a very harsh and painful lesson is required.
 * I would rather adjust my life to your absence than adjust my boundaries to accommodate your disrespect.
+* "The majority of problems on this planet are the result of the idea that humans are not sovereign and autonomous, but property owned by primitive Gods and incompetent governments." ― Christopher S. Hyatt, _Rebels and Devils: The Psychology of Liberation (Revised)_
+* Whatever your problems are, keep in mind that you die at the end of all this. Lets get out there, brutalize ourselves and laugh at those certain pricks who take it seriously, like there is any way to win in all this. - Attributed to Doug Stanhope
