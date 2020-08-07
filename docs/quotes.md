@@ -8,6 +8,8 @@ A commonplace book
 * Don't dish it out if you can't take it.
 * If you don't play, you can't lose.
 * Err on the side ofy whimsy.
+* You can't take in too many stray cats.
+* It's not your job to protect others from natural consequences.
 * Let others dig their own graves.
 * Stupidity
   * Play stupid games, win stupid prizes.
