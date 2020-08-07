@@ -5,6 +5,7 @@ A commonplace book
 * Do not taint your victory.
 * In the age of information, ignorance is a choice. - Donny Miller (attributed)
 * You can't forgive someone who isn't sorry.
+* Don't dish it out if you can't take it.
 * If you don't play, you can't lose.
 * Err on the side ofy whimsy.
 * Let others dig their own graves.
