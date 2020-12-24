@@ -1,42 +1,18 @@
 [user]
-	name = Andrew Merenbach
 	email = amerenba@amazon.com
-[push]
-	default = simple
-[core]
-	quotepath = false
-	autocrlf = input
-	editor = code --wait
-	excludesfile = ~/.cvsignore
+	name = Andrew Merenbach
 [color]
 	ui = auto
-[color "branch"]
-	current = blue reverse
-	local = blue
-	remote = green
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-[color "status"]
-	added = blue
-	changed = green
-	untracked = cyan 
+[core]
+	pager = less -FMRiX
+[push]
+	default = simple
 [alias]
-	co = checkout
-	ci = commit
-	st = status
-	br = branch
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	lo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(white)<%an>%Creset' --abbrev-commit --date=relative
-	addr = add -A
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-[log]
-	decorate = full
-[diff]
-	tool = vimdiff
-[merge]
-	tool = vimdiff
-[difftool]
-	prompt = false
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+        addr = add -A
+ 
